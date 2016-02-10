@@ -25,7 +25,7 @@ namespace LOG660.FACADE
         }
 
         /// <summary>
-        /// 
+        /// Function for user connection
         /// </summary>
         /// <param name="usercode"></param>
         /// <param name="userPassword"></param>
