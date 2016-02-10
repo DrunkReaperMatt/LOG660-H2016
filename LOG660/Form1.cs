@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LOG660
 {
-    public partial class login : Form
+    public partial class Form1 : Form
     {
-        public login()
+        public Form1()
         {
             InitializeComponent();
         }
