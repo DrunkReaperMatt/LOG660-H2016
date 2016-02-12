@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LOG660.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace LOG660
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1()); // test
+            Application.Run(new filmsConsultation()); // test
         }
     }
 }
