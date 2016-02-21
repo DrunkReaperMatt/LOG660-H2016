@@ -17,6 +17,9 @@ namespace LOG660.UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new login());
+
+            // JP Test page principale
+            //Application.Run(new filmsConsultation());
         }
     }
 }

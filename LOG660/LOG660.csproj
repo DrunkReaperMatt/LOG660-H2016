@@ -122,6 +122,12 @@
       <DependentUpon>MovieManager.tt</DependentUpon>
     </Compile>
     <Compile Include="FACADE\WebFlixFacade.cs" />
+    <Compile Include="UI\filmsConsultation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\filmsConsultation.Designer.cs">
+      <DependentUpon>filmsConsultation.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\filmsConsultation.resx">
+      <DependentUpon>filmsConsultation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +170,7 @@
       <LastGenOutput>MovieManager.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\LOG660.DATA.FILM.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
