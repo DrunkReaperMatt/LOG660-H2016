@@ -22,10 +22,8 @@ namespace LOG660.FACADE
                 if (_webFlixInstance == null)
                 {
                     _webFlixInstance = new WebFlixFacade();
-                    
+                    _entityWebFlixMgr = new MovieEntityDataManager();
                 }
-
-                _entityWebFlixMgr = new MovieEntityDataManager();
 
                 return _webFlixInstance;
 
