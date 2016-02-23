@@ -13,5 +13,10 @@ namespace LOG660.HELPERS
         {
             return WebFlixFacade.getInstance.getEntity.CLIENTs.Any(c => c.IDUSAGER == idUser);
         }
+
+        public static bool isMovieCount(decimal idMovie)
+        {
+            return WebFlixFacade.getInstance.getEntity.EXEMPLAIREs.Any(m => m.IDEXEMPLAIRE == idMovie);
+        }
     }
 }
