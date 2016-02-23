@@ -10,8 +10,8 @@ namespace LOG660UnitTest
         [TestMethod]
         public void TestUserConnexion()
         {
-            var web = WebFlixFacade.getInstance;            
-            
+            var web = WebFlixFacade.getInstance.getEntity;
+
             var u = WebFlixFacade.connectUserWithCredentials("reginald.augustin@gmail.com", "pwd");
             Assert.AreEqual(u, null);
         }
