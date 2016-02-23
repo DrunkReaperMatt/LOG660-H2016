@@ -32,14 +32,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.021\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.1.021\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -53,80 +65,80 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DATA\ACTEUR.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\ACTEURFILM.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\ADRESSE.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\BIOGRAPHIE.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\CLIENT.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\EMPLOYE.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\EXEMPLAIRE.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\FILM.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\FORFAIT.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\GENRE.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\LIGNELOCATION.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\LOCATION.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
-    <Compile Include="DATA\MovieManager.Context.cs">
+    <Compile Include="DATA\MovieManagerDataObject.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MovieManager.Context.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DATA\MovieManager.cs">
+    <Compile Include="DATA\MovieManagerDataObject.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
-    <Compile Include="DATA\MovieManager.Designer.cs">
+    <Compile Include="DATA\MovieManagerDataObject.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MovieManager.edmx</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.edmx</DependentUpon>
     </Compile>
     <Compile Include="DATA\PAYSPRODUCTION.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\PERSONNE.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\REALISATEUR.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\RESUME.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\SCENARISTE.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\USAGER.cs">
-      <DependentUpon>MovieManager.tt</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="FACADE\WebFlixFacade.cs" />
-    <Compile Include="UI\filmsConsultation.cs">
+    <Compile Include="UI\FormFilmsConsultation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\filmsConsultation.Designer.cs">
-      <DependentUpon>filmsConsultation.cs</DependentUpon>
+    <Compile Include="UI\FormFilmsConsultation.Designer.cs">
+      <DependentUpon>FormFilmsConsultation.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\login.cs">
       <SubType>Form</SubType>
@@ -146,28 +158,28 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\filmsConsultation.resx">
-      <DependentUpon>filmsConsultation.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FormFilmsConsultation.resx">
+      <DependentUpon>FormFilmsConsultation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="DATA\MovieManager.edmx">
+    <EntityDeploy Include="DATA\MovieManagerDataObject.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MovieManager.Designer.cs</LastGenOutput>
+      <LastGenOutput>MovieManagerDataObject.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DATA\MovieManager.Context.tt">
+    <None Include="DATA\MovieManagerDataObject.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MovieManager.Context.cs</LastGenOutput>
-      <DependentUpon>MovieManager.edmx</DependentUpon>
+      <DependentUpon>MovieManagerDataObject.edmx</DependentUpon>
+      <LastGenOutput>MovieManagerDataObject.Context.cs</LastGenOutput>
     </None>
-    <None Include="DATA\MovieManager.edmx.diagram">
-      <DependentUpon>MovieManager.edmx</DependentUpon>
+    <None Include="DATA\MovieManagerDataObject.edmx.diagram">
+      <DependentUpon>MovieManagerDataObject.edmx</DependentUpon>
     </None>
-    <None Include="DATA\MovieManager.tt">
+    <None Include="DATA\MovieManagerDataObject.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MovieManager.edmx</DependentUpon>
-      <LastGenOutput>MovieManager.cs</LastGenOutput>
+      <DependentUpon>MovieManagerDataObject.edmx</DependentUpon>
+      <LastGenOutput>MovieManagerDataObject.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\LOG660.DATA.FILM.datasource" />
@@ -182,9 +194,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOG660", "LOG660\LOG660.csproj", "{08434407-A188-451A-82C3-7C0D7F1D6191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOG660UnitTest", "LOG660UnitTest\LOG660UnitTest.csproj", "{0862D739-DD1F-4547-B18C-855B5BCB6CF8}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -17,6 +21,10 @@ Global
 		{08434407-A188-451A-82C3-7C0D7F1D6191}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08434407-A188-451A-82C3-7C0D7F1D6191}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08434407-A188-451A-82C3-7C0D7F1D6191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0862D739-DD1F-4547-B18C-855B5BCB6CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0862D739-DD1F-4547-B18C-855B5BCB6CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0862D739-DD1F-4547-B18C-855B5BCB6CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0862D739-DD1F-4547-B18C-855B5BCB6CF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MovieMgrModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MovieManagerDataObjectModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACTEUR">
           <Key>
             <PropertyRef Name="IDPERSONNE" />
@@ -202,6 +202,18 @@
             </Principal>
             <Dependent Role="EXEMPLAIRE">
               <PropertyRef Name="IDFILM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDUSAGER">
+          <End Role="USAGER" Type="Self.USAGER" Multiplicity="1" />
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USAGER">
+              <PropertyRef Name="IDUSAGER" />
+            </Principal>
+            <Dependent Role="CLIENT">
+              <PropertyRef Name="IDUSAGER" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -469,7 +481,7 @@
           <Parameter Name="IDMOVIE" Type="number" Mode="In" />
           <Parameter Name="IDEXEMPLAIRE" Type="number" Mode="In" />
         </Function>
-        <EntityContainer Name="MovieMgrModelStoreContainer">
+        <EntityContainer Name="MovieManagerDataObjectModelStoreContainer">
           <EntitySet Name="ACTEUR" EntityType="Self.ACTEUR" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="ACTEURFILM" EntityType="Self.ACTEURFILM" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="ADRESSE" EntityType="Self.ADRESSE" Schema="EQUIPE7" store:Type="Tables" />
@@ -495,6 +507,10 @@
           <AssociationSet Name="EXEMPLAIREFILM_FK" Association="Self.EXEMPLAIREFILM_FK">
             <End Role="FILM" EntitySet="FILM" />
             <End Role="EXEMPLAIRE" EntitySet="EXEMPLAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="IDUSAGER" Association="Self.IDUSAGER">
+            <End Role="USAGER" EntitySet="USAGER" />
+            <End Role="CLIENT" EntitySet="CLIENT" />
           </AssociationSet>
           <AssociationSet Name="SYS_C00387315" Association="Self.SYS_C00387315">
             <End Role="FORFAIT" EntitySet="FORFAIT" />
@@ -581,7 +597,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MovieMgrModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="MovieManagerDataObjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ACTEUR">
           <Key>
             <PropertyRef Name="IDPERSONNE" />
@@ -632,9 +648,10 @@
           <Property Name="IDUSAGER" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NUMEROCARTE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CCV" Type="Int16" />
+          <Property Name="CCV" Type="Byte" />
           <Property Name="DATEEXPIRATIONCARTE" Type="DateTime" Nullable="false" />
           <Property Name="IDFORFAIT" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="USAGER" Relationship="Self.IDUSAGER" FromRole="CLIENT" ToRole="USAGER" />
           <NavigationProperty Name="FORFAIT" Relationship="Self.SYS_C00387315" FromRole="CLIENT" ToRole="FORFAIT" />
         </EntityType>
         <EntityType Name="EMPLOYE">
@@ -769,6 +786,7 @@
           <Property Name="TELEPHONE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MOTPASSE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ADRESSEs" Relationship="Self.SYS_C00394496" FromRole="USAGER" ToRole="ADRESSE" />
+          <NavigationProperty Name="CLIENTs" Relationship="Self.IDUSAGER" FromRole="USAGER" ToRole="CLIENT" />
           <NavigationProperty Name="EMPLOYE" Relationship="Self.SYS_C00394500" FromRole="USAGER" ToRole="EMPLOYE" />
           <NavigationProperty Name="LOCATIONs" Relationship="Self.LOCATIONUSAGER" FromRole="USAGER" ToRole="LOCATION" />
         </EntityType>
@@ -829,6 +847,18 @@
             </Principal>
             <Dependent Role="PERSONNE">
               <PropertyRef Name="IDBIOGRAPHIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDUSAGER">
+          <End Role="USAGER" Type="Self.USAGER" Multiplicity="1" />
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USAGER">
+              <PropertyRef Name="IDUSAGER" />
+            </Principal>
+            <Dependent Role="CLIENT">
+              <PropertyRef Name="IDUSAGER" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -944,7 +974,7 @@
           <End Role="PERSONNE" Type="Self.PERSONNE" Multiplicity="*" />
           <End Role="FILM" Type="Self.FILM" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="MovieEntity" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MovieEntityDataManager" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ACTEURs" EntityType="Self.ACTEUR" />
           <EntitySet Name="ACTEURFILMs" EntityType="Self.ACTEURFILM" />
           <EntitySet Name="ADRESSEs" EntityType="Self.ADRESSE" />
@@ -982,6 +1012,10 @@
           <AssociationSet Name="SYS_C00394508" Association="Self.SYS_C00394508">
             <End Role="BIOGRAPHIE" EntitySet="BIOGRAPHIEs" />
             <End Role="PERSONNE" EntitySet="PERSONNEs" />
+          </AssociationSet>
+          <AssociationSet Name="IDUSAGER" Association="Self.IDUSAGER">
+            <End Role="USAGER" EntitySet="USAGERs" />
+            <End Role="CLIENT" EntitySet="CLIENTs" />
           </AssociationSet>
           <AssociationSet Name="SYS_C00387315" Association="Self.SYS_C00387315">
             <End Role="FORFAIT" EntitySet="FORFAITs" />
@@ -1061,16 +1095,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MovieMgrModelStoreContainer" CdmEntityContainer="MovieEntity">
+        <EntityContainerMapping StorageEntityContainer="MovieManagerDataObjectModelStoreContainer" CdmEntityContainer="MovieEntityDataManager">
           <EntitySetMapping Name="ACTEURs">
-            <EntityTypeMapping TypeName="MovieMgrModel.ACTEUR">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.ACTEUR">
               <MappingFragment StoreEntitySet="ACTEUR">
                 <ScalarProperty Name="IDPERSONNE" ColumnName="IDPERSONNE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTEURFILMs">
-            <EntityTypeMapping TypeName="MovieMgrModel.ACTEURFILM">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.ACTEURFILM">
               <MappingFragment StoreEntitySet="ACTEURFILM">
                 <ScalarProperty Name="IDPERSONNE" ColumnName="IDPERSONNE" />
                 <ScalarProperty Name="IDFILM" ColumnName="IDFILM" />
@@ -1079,7 +1113,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ADRESSEs">
-            <EntityTypeMapping TypeName="MovieMgrModel.ADRESSE">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.ADRESSE">
               <MappingFragment StoreEntitySet="ADRESSE">
                 <ScalarProperty Name="IDADRESSE" ColumnName="IDADRESSE" />
                 <ScalarProperty Name="NOCIVIC" ColumnName="NOCIVIC" />
@@ -1094,7 +1128,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BIOGRAPHIEs">
-            <EntityTypeMapping TypeName="MovieMgrModel.BIOGRAPHIE">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.BIOGRAPHIE">
               <MappingFragment StoreEntitySet="BIOGRAPHIE">
                 <ScalarProperty Name="IDBIOGRAPHIE" ColumnName="IDBIOGRAPHIE" />
                 <ScalarProperty Name="BIOGRAPHIE1" ColumnName="BIOGRAPHIE" />
@@ -1102,7 +1136,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CLIENTs">
-            <EntityTypeMapping TypeName="MovieMgrModel.CLIENT">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.CLIENT">
               <MappingFragment StoreEntitySet="CLIENT">
                 <ScalarProperty Name="IDUSAGER" ColumnName="IDUSAGER" />
                 <ScalarProperty Name="NUMEROCARTE" ColumnName="NUMEROCARTE" />
@@ -1114,7 +1148,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EMPLOYEs">
-            <EntityTypeMapping TypeName="MovieMgrModel.EMPLOYE">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.EMPLOYE">
               <MappingFragment StoreEntitySet="EMPLOYE">
                 <ScalarProperty Name="IDUSAGER" ColumnName="IDUSAGER" />
                 <ScalarProperty Name="MATRICULE" ColumnName="MATRICULE" />
@@ -1122,7 +1156,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EXEMPLAIREs">
-            <EntityTypeMapping TypeName="MovieMgrModel.EXEMPLAIRE">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.EXEMPLAIRE">
               <MappingFragment StoreEntitySet="EXEMPLAIRE">
                 <ScalarProperty Name="IDEXEMPLAIRE" ColumnName="IDEXEMPLAIRE" />
                 <ScalarProperty Name="IDFILM" ColumnName="IDFILM" />
@@ -1130,7 +1164,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FILMs">
-            <EntityTypeMapping TypeName="MovieMgrModel.FILM">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.FILM">
               <MappingFragment StoreEntitySet="FILM">
                 <ScalarProperty Name="IDFILM" ColumnName="IDFILM" />
                 <ScalarProperty Name="TITRE" ColumnName="TITRE" />
@@ -1143,7 +1177,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FORFAITs">
-            <EntityTypeMapping TypeName="MovieMgrModel.FORFAIT">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.FORFAIT">
               <MappingFragment StoreEntitySet="FORFAIT">
                 <ScalarProperty Name="IDFORFAIT" ColumnName="IDFORFAIT" />
                 <ScalarProperty Name="NOM" ColumnName="NOM" />
@@ -1154,7 +1188,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GENREs">
-            <EntityTypeMapping TypeName="MovieMgrModel.GENRE">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.GENRE">
               <MappingFragment StoreEntitySet="GENRE">
                 <ScalarProperty Name="IDGENRE" ColumnName="IDGENRE" />
                 <ScalarProperty Name="NOM" ColumnName="NOM" />
@@ -1162,7 +1196,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LIGNELOCATIONs">
-            <EntityTypeMapping TypeName="MovieMgrModel.LIGNELOCATION">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.LIGNELOCATION">
               <MappingFragment StoreEntitySet="LIGNELOCATION">
                 <ScalarProperty Name="IDLIGNELOCATION" ColumnName="IDLIGNELOCATION" />
                 <ScalarProperty Name="IDEXEMPLAIRE" ColumnName="IDEXEMPLAIRE" />
@@ -1172,7 +1206,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOCATIONs">
-            <EntityTypeMapping TypeName="MovieMgrModel.LOCATION">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.LOCATION">
               <MappingFragment StoreEntitySet="LOCATION">
                 <ScalarProperty Name="IDLOCATION" ColumnName="IDLOCATION" />
                 <ScalarProperty Name="IDLIGNELOCATION" ColumnName="IDLIGNELOCATION" />
@@ -1180,7 +1214,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PAYSPRODUCTIONs">
-            <EntityTypeMapping TypeName="MovieMgrModel.PAYSPRODUCTION">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.PAYSPRODUCTION">
               <MappingFragment StoreEntitySet="PAYSPRODUCTION">
                 <ScalarProperty Name="IDPAYS" ColumnName="IDPAYS" />
                 <ScalarProperty Name="NOM" ColumnName="NOM" />
@@ -1188,7 +1222,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PERSONNEs">
-            <EntityTypeMapping TypeName="MovieMgrModel.PERSONNE">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.PERSONNE">
               <MappingFragment StoreEntitySet="PERSONNE">
                 <ScalarProperty Name="IDPERSONNE" ColumnName="IDPERSONNE" />
                 <ScalarProperty Name="NOM" ColumnName="NOM" />
@@ -1200,14 +1234,14 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REALISATEURs">
-            <EntityTypeMapping TypeName="MovieMgrModel.REALISATEUR">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.REALISATEUR">
               <MappingFragment StoreEntitySet="REALISATEUR">
                 <ScalarProperty Name="IDPERSONNE" ColumnName="IDPERSONNE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RESUMEs">
-            <EntityTypeMapping TypeName="MovieMgrModel.RESUME">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.RESUME">
               <MappingFragment StoreEntitySet="RESUME">
                 <ScalarProperty Name="IDRESUME" ColumnName="IDRESUME" />
                 <ScalarProperty Name="RESUME1" ColumnName="RESUME" />
@@ -1215,14 +1249,14 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SCENARISTEs">
-            <EntityTypeMapping TypeName="MovieMgrModel.SCENARISTE">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.SCENARISTE">
               <MappingFragment StoreEntitySet="SCENARISTE">
                 <ScalarProperty Name="IDPERSONNE" ColumnName="IDPERSONNE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USAGERs">
-            <EntityTypeMapping TypeName="MovieMgrModel.USAGER">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.USAGER">
               <MappingFragment StoreEntitySet="USAGER">
                 <ScalarProperty Name="IDUSAGER" ColumnName="IDUSAGER" />
                 <ScalarProperty Name="NOM" ColumnName="NOM" />
@@ -1233,7 +1267,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="GENREFILM" TypeName="MovieMgrModel.GENREFILM" StoreEntitySet="GENREFILM">
+          <AssociationSetMapping Name="GENREFILM" TypeName="MovieManagerDataObjectModel.GENREFILM" StoreEntitySet="GENREFILM">
             <EndProperty Name="GENRE">
               <ScalarProperty Name="IDGENRE" ColumnName="IDGENRE" />
             </EndProperty>
@@ -1241,7 +1275,7 @@
               <ScalarProperty Name="IDFILM" ColumnName="IDFILM" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="LOCATIONUSAGER" TypeName="MovieMgrModel.LOCATIONUSAGER" StoreEntitySet="LOCATIONUSAGER">
+          <AssociationSetMapping Name="LOCATIONUSAGER" TypeName="MovieManagerDataObjectModel.LOCATIONUSAGER" StoreEntitySet="LOCATIONUSAGER">
             <EndProperty Name="USAGER">
               <ScalarProperty Name="IDUSAGER" ColumnName="IDUSAGER" />
             </EndProperty>
@@ -1249,7 +1283,7 @@
               <ScalarProperty Name="IDLOCATION" ColumnName="IDLOCATION" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="PAYSPRODUCTIONFILM" TypeName="MovieMgrModel.PAYSPRODUCTIONFILM" StoreEntitySet="PAYSPRODUCTIONFILM">
+          <AssociationSetMapping Name="PAYSPRODUCTIONFILM" TypeName="MovieManagerDataObjectModel.PAYSPRODUCTIONFILM" StoreEntitySet="PAYSPRODUCTIONFILM">
             <EndProperty Name="FILM">
               <ScalarProperty Name="IDFILM" ColumnName="IDFILM" />
             </EndProperty>
@@ -1257,7 +1291,7 @@
               <ScalarProperty Name="IDPAYS" ColumnName="IDPAYS" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="SCENARISTEFILM" TypeName="MovieMgrModel.SCENARISTEFILM" StoreEntitySet="SCENARISTEFILM">
+          <AssociationSetMapping Name="SCENARISTEFILM" TypeName="MovieManagerDataObjectModel.SCENARISTEFILM" StoreEntitySet="SCENARISTEFILM">
             <EndProperty Name="PERSONNE">
               <ScalarProperty Name="IDPERSONNE" ColumnName="IDPERSONNE" />
             </EndProperty>
@@ -1265,8 +1299,8 @@
               <ScalarProperty Name="IDFILM" ColumnName="IDFILM" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="PROC_ADDCLIENT" FunctionName="MovieMgrModel.Store.PROC_ADDCLIENT" />
-          <FunctionImportMapping FunctionImportName="PROC_RENTMOVIE" FunctionName="MovieMgrModel.Store.PROC_RENTMOVIE" />
+          <FunctionImportMapping FunctionImportName="PROC_ADDCLIENT" FunctionName="MovieManagerDataObjectModel.Store.PROC_ADDCLIENT" />
+          <FunctionImportMapping FunctionImportName="PROC_RENTMOVIE" FunctionName="MovieManagerDataObjectModel.Store.PROC_RENTMOVIE" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1283,7 +1317,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

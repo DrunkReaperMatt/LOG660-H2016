@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f85e864c926949589ea84abade117bda" Name="Diagram1">
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.ACTEUR" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.ACTEURFILM" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.ADRESSE" Width="1.5" PointX="15" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.BIOGRAPHIE" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.CLIENT" Width="1.5" PointX="15" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.EMPLOYE" Width="1.5" PointX="15" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.EXEMPLAIRE" Width="1.5" PointX="10.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.FILM" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.FORFAIT" Width="1.5" PointX="12.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.GENRE" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.LIGNELOCATION" Width="1.5" PointX="12.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.LOCATION" Width="1.5" PointX="15" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.PAYSPRODUCTION" Width="1.5" PointX="10.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.PERSONNE" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.REALISATEUR" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.RESUME" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.SCENARISTE" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.USAGER" Width="1.5" PointX="12.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394517" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394536" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394537" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394496" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394508" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.IDUSAGER" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00387315" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394500" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.EXEMPLAIREFILM_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394567" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394527" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394571" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394511" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00394514" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.GENREFILM" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.LOCATIONUSAGER" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.PAYSPRODUCTIONFILM" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SCENARISTEFILM" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
