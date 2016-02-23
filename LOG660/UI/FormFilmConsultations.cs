@@ -1,4 +1,5 @@
 ﻿using LOG660.DATA;
+using LOG660.HELPERS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,15 @@ namespace LOG660.UI
 
         private void m_btnLouerFilm_Click(object sender, EventArgs e)
         {
+            if (Helpers.isClient(currentUser.IDUSAGER))
+            {
 
+            }
+        }
+
+        private void FormFilmConsultations_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

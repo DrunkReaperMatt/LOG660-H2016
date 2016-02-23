@@ -543,6 +543,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MinimumSize = new System.Drawing.Size(1461, 606);
             this.Name = "FormFilmConsultations";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormFilmConsultations_FormClosed);
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

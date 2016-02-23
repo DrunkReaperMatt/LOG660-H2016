@@ -134,6 +134,7 @@
       <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="FACADE\WebFlixFacade.cs" />
+    <Compile Include="HELPERS\Helpers.cs" />
     <Compile Include="UI\FormFilmConsultations.cs">
       <SubType>Form</SubType>
     </Compile>

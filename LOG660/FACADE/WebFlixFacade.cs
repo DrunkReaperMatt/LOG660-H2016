@@ -11,7 +11,7 @@ namespace LOG660.FACADE
     {
         private static WebFlixFacade _webFlixInstance;
 
-        private static MovieEntityDataManager _entityWebFlixMgr;
+        public static MovieEntityDataManager _entityWebFlixMgr;
         public WebFlixFacade() { }
         
         //Singleton de  l'objet de la BD
@@ -32,6 +32,11 @@ namespace LOG660.FACADE
             }
         }
 
+        public MovieEntityDataManager getEntity
+        {
+            get { return _entityWebFlixMgr; }
+        }
+
         /// <summary>
         /// Function for user connection
         /// </summary>
@@ -40,8 +45,6 @@ namespace LOG660.FACADE
         /// <returns></returns>
         public static USAGER connectUserWithCredentials(string usercode, string userPassword)
         {
-            var users = _entityWebFlixMgr.USAGERs.ToList();
-          
             if (!String.IsNullOrEmpty(usercode) && !String.IsNullOrEmpty(userPassword))
                 return _entityWebFlixMgr.USAGERs.FirstOrDefault(u => u.COURRIEL.ToLower().Equals(usercode.ToLower()) && u.MOTPASSE.Equals(userPassword));
          
