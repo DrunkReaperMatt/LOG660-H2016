@@ -21,6 +21,7 @@ namespace LOG660.UI
         FILM currentMovie = null;
         login m_loginPage = null;
         WebFlixFacade m_facade = WebFlixFacade.getInstance;
+        System.Timers.Timer m_timer = new System.Timers.Timer(400);
 
         #endregion
 
@@ -30,6 +31,7 @@ namespace LOG660.UI
         {
             InitializeComponent();
 
+            m_timer.Elapsed += m_timer_Elapsed;
             m_loginPage = loginPage;
             this.currentUser = (USAGER)user;
             m_lblNomClient.Text = currentUser.NOM;
@@ -145,15 +147,6 @@ namespace LOG660.UI
             DisplayMovies(films);
         }
 
-        private void m_btnRechercher_Click(object sender, EventArgs e)
-        {
-            var web = WebFlixFacade.getInstance;
-
-            List<FILM> films = WebFlixFacade.getFilmList(m_txtRecherche.Text);
-            DisplayMovies(films);
-        
-        }
-
         private void m_btnEffacer_Click(object sender, EventArgs e)
         {
             m_txtRecherche.Text = String.Empty;
@@ -191,6 +184,29 @@ namespace LOG660.UI
         {
             var id = m_dataFilms[0, m_dataFilms.CurrentCell.RowIndex].Value;
             displayMovieInfoById(Convert.ToInt32(id));
+        }
+
+        private void m_txtRecherche_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                m_txtRecherche.Text = String.Empty;
+            }
+            m_timer.Start();
+        }
+
+        private void m_timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            m_timer.Stop();
+
+            BeginInvoke(new Action(() =>
+            {
+                var web = WebFlixFacade.getInstance;
+
+                List<FILM> films = WebFlixFacade.getFilmList(m_txtRecherche.Text);
+                DisplayMovies(films);
+            }
+            ));
         }
 
         #endregion

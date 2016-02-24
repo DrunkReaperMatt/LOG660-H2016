@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.m_dataFilms = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomFilms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.m_lblFilms = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.m_dataActors = new System.Windows.Forms.DataGridView();
@@ -75,18 +78,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.m_txtRecherche = new System.Windows.Forms.TextBox();
             this.m_btnOptionsRecherche = new System.Windows.Forms.Button();
-            this.m_btnRechercher = new System.Windows.Forms.Button();
             this.m_btnEffacer = new System.Windows.Forms.Button();
             this.Titre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idFilm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.m_dataFilms = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomFilms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.m_dataFilms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -95,7 +95,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dataCountries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fILMBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_dataFilms)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -133,6 +132,47 @@
             this.splitContainer1.SplitterDistance = 259;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // m_dataFilms
+            // 
+            this.m_dataFilms.AllowUserToAddRows = false;
+            this.m_dataFilms.AllowUserToDeleteRows = false;
+            this.m_dataFilms.AllowUserToResizeColumns = false;
+            this.m_dataFilms.AllowUserToResizeRows = false;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.m_dataFilms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_dataFilms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.m_dataFilms.ColumnHeadersVisible = false;
+            this.m_dataFilms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.NomFilms});
+            this.m_dataFilms.Location = new System.Drawing.Point(3, 30);
+            this.m_dataFilms.MultiSelect = false;
+            this.m_dataFilms.Name = "m_dataFilms";
+            this.m_dataFilms.RowHeadersVisible = false;
+            this.m_dataFilms.RowTemplate.Height = 28;
+            this.m_dataFilms.Size = new System.Drawing.Size(250, 331);
+            this.m_dataFilms.TabIndex = 13;
+            this.m_dataFilms.SelectionChanged += new System.EventHandler(this.m_dataFilms_SelectionChanged);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // NomFilms
+            // 
+            this.NomFilms.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomFilms.DefaultCellStyle = dataGridViewCellStyle17;
+            this.NomFilms.HeaderText = "NomFilms";
+            this.NomFilms.Name = "NomFilms";
+            this.NomFilms.ReadOnly = true;
+            this.NomFilms.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // m_lblFilms
             // 
@@ -192,8 +232,8 @@
             this.m_dataActors.AllowUserToDeleteRows = false;
             this.m_dataActors.AllowUserToResizeColumns = false;
             this.m_dataActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
             this.m_dataActors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -268,8 +308,8 @@
             this.m_dataCountries.AllowUserToDeleteRows = false;
             this.m_dataCountries.AllowUserToResizeColumns = false;
             this.m_dataCountries.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataCountries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataCountries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.m_dataCountries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.m_dataCountries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -543,29 +583,20 @@
             this.m_txtRecherche.Name = "m_txtRecherche";
             this.m_txtRecherche.Size = new System.Drawing.Size(139, 20);
             this.m_txtRecherche.TabIndex = 5;
+            this.m_txtRecherche.KeyUp += new System.Windows.Forms.KeyEventHandler(this.m_txtRecherche_KeyUp);
             // 
             // m_btnOptionsRecherche
             // 
-            this.m_btnOptionsRecherche.Location = new System.Drawing.Point(330, 35);
+            this.m_btnOptionsRecherche.Location = new System.Drawing.Point(286, 35);
             this.m_btnOptionsRecherche.Name = "m_btnOptionsRecherche";
             this.m_btnOptionsRecherche.Size = new System.Drawing.Size(119, 23);
             this.m_btnOptionsRecherche.TabIndex = 7;
             this.m_btnOptionsRecherche.Text = "Recherche avancée";
             this.m_btnOptionsRecherche.UseVisualStyleBackColor = true;
             // 
-            // m_btnRechercher
-            // 
-            this.m_btnRechercher.Location = new System.Drawing.Point(234, 35);
-            this.m_btnRechercher.Name = "m_btnRechercher";
-            this.m_btnRechercher.Size = new System.Drawing.Size(35, 23);
-            this.m_btnRechercher.TabIndex = 8;
-            this.m_btnRechercher.Text = "Go";
-            this.m_btnRechercher.UseVisualStyleBackColor = true;
-            this.m_btnRechercher.Click += new System.EventHandler(this.m_btnRechercher_Click);
-            // 
             // m_btnEffacer
             // 
-            this.m_btnEffacer.Location = new System.Drawing.Point(275, 35);
+            this.m_btnEffacer.Location = new System.Drawing.Point(234, 35);
             this.m_btnEffacer.Name = "m_btnEffacer";
             this.m_btnEffacer.Size = new System.Drawing.Size(49, 23);
             this.m_btnEffacer.TabIndex = 9;
@@ -576,8 +607,8 @@
             // Titre
             // 
             this.Titre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titre.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titre.DefaultCellStyle = dataGridViewCellStyle20;
             this.Titre.HeaderText = "Titre";
             this.Titre.Name = "Titre";
             this.Titre.ReadOnly = true;
@@ -590,54 +621,12 @@
             this.idFilm.ReadOnly = true;
             this.idFilm.Visible = false;
             // 
-            // m_dataFilms
-            // 
-            this.m_dataFilms.AllowUserToAddRows = false;
-            this.m_dataFilms.AllowUserToDeleteRows = false;
-            this.m_dataFilms.AllowUserToResizeColumns = false;
-            this.m_dataFilms.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.m_dataFilms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_dataFilms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.m_dataFilms.ColumnHeadersVisible = false;
-            this.m_dataFilms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.NomFilms});
-            this.m_dataFilms.Location = new System.Drawing.Point(3, 30);
-            this.m_dataFilms.MultiSelect = false;
-            this.m_dataFilms.Name = "m_dataFilms";
-            this.m_dataFilms.RowHeadersVisible = false;
-            this.m_dataFilms.RowTemplate.Height = 28;
-            this.m_dataFilms.Size = new System.Drawing.Size(250, 331);
-            this.m_dataFilms.TabIndex = 13;
-            this.m_dataFilms.SelectionChanged += new System.EventHandler(this.m_dataFilms_SelectionChanged);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            // 
-            // NomFilms
-            // 
-            this.NomFilms.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NomFilms.DefaultCellStyle = dataGridViewCellStyle2;
-            this.NomFilms.HeaderText = "NomFilms";
-            this.NomFilms.Name = "NomFilms";
-            this.NomFilms.ReadOnly = true;
-            this.NomFilms.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // FormFilmConsultations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1118, 462);
             this.Controls.Add(this.m_btnEffacer);
-            this.Controls.Add(this.m_btnRechercher);
             this.Controls.Add(this.m_btnOptionsRecherche);
             this.Controls.Add(this.m_txtRecherche);
             this.Controls.Add(this.label3);
@@ -645,6 +634,7 @@
             this.Controls.Add(this.m_btnLouerFilm);
             this.Controls.Add(this.m_btnDeconnexion);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(1100, 500);
             this.Name = "FormFilmConsultations";
             this.Padding = new System.Windows.Forms.Padding(0, 5, 10, 5);
@@ -656,6 +646,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.m_dataFilms)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -666,7 +657,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dataCountries)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fILMBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_dataFilms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,7 +673,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox m_txtRecherche;
         private System.Windows.Forms.Button m_btnOptionsRecherche;
-        private System.Windows.Forms.Button m_btnRechercher;
         private System.Windows.Forms.Button m_btnEffacer;
         private System.Windows.Forms.Label m_lblFilms;
         private System.Windows.Forms.Label m_lblRealisateur;
