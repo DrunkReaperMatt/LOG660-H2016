@@ -81,6 +81,16 @@ namespace LOG660.UI
             }
         }
 
+        private void DisplayMovies(List<FILM> films)
+        {
+            m_dataFilms.Rows.Clear();
+
+            foreach (var movie in films)
+            {
+                m_dataFilms.Rows.Add(movie.IDFILM, movie.TITRE + " (" + movie.ANNEESORTIE + ")");
+            }
+        }
+
         private void displayActors(ICollection<ACTEURFILM> collection)
         {
             m_dataActors.Rows.Clear();
@@ -132,24 +142,15 @@ namespace LOG660.UI
         private void FormFilmConsultations_Load(object sender, EventArgs e)
         {
             var films = m_facade.getEntity.FILMs.ToList();
-
-            foreach (var film in films)
-            {
-                m_dataFilms.Rows.Add(film.TITRE + " (" + film.ANNEESORTIE + ")", film.IDFILM);
-            }
+            DisplayMovies(films);
         }
 
         private void m_btnRechercher_Click(object sender, EventArgs e)
         {
             var web = WebFlixFacade.getInstance;
 
-            List<FILM> film = WebFlixFacade.getFilmList(m_txtRecherche.Text);
-
-            listBox1.Items.Clear();
-
-            foreach (FILM f in film){
-                listBox1.Items.Add(f.TITRE);
-            }
+            List<FILM> films = WebFlixFacade.getFilmList(m_txtRecherche.Text);
+            DisplayMovies(films);
         
         }
 
@@ -188,7 +189,7 @@ namespace LOG660.UI
 
         private void m_dataFilms_SelectionChanged(object sender, EventArgs e)
         {
-            var id = m_dataFilms[1, m_dataFilms.CurrentCell.RowIndex].Value;
+            var id = m_dataFilms[0, m_dataFilms.CurrentCell.RowIndex].Value;
             displayMovieInfoById(Convert.ToInt32(id));
         }
 

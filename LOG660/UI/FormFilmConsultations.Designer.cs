@@ -29,18 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.m_dataFilms = new System.Windows.Forms.DataGridView();
             this.m_lblFilms = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.m_dataActors = new System.Windows.Forms.DataGridView();
+            this.idActeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.idScenariste = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomScenariste = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.m_dataCountries = new System.Windows.Forms.DataGridView();
+            this.idPays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomPays = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,36 +77,25 @@
             this.m_btnOptionsRecherche = new System.Windows.Forms.Button();
             this.m_btnRechercher = new System.Windows.Forms.Button();
             this.m_btnEffacer = new System.Windows.Forms.Button();
-<<<<<<< Updated upstream
-            this.idScenariste = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomScenariste = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idActeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idFilm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idPays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomPays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-=======
-            this.listBox1 = new System.Windows.Forms.ListBox();
->>>>>>> Stashed changes
+            this.m_dataFilms = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomFilms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fILMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_dataActors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-<<<<<<< Updated upstream
             ((System.ComponentModel.ISupportInitialize)(this.m_dataCountries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fILMBindingSource)).BeginInit();
-=======
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
->>>>>>> Stashed changes
+            ((System.ComponentModel.ISupportInitialize)(this.m_dataFilms)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -128,7 +123,7 @@
             // 
             this.splitContainer1.Panel1.AccessibleName = "";
             this.splitContainer1.Panel1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.splitContainer1.Panel1.Controls.Add(this.listBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.m_dataFilms);
             this.splitContainer1.Panel1.Controls.Add(this.m_lblFilms);
             // 
             // splitContainer1.Panel2
@@ -139,35 +134,6 @@
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
             // 
-<<<<<<< Updated upstream
-            // m_dataFilms
-            // 
-            this.m_dataFilms.AllowUserToAddRows = false;
-            this.m_dataFilms.AllowUserToDeleteRows = false;
-            this.m_dataFilms.AllowUserToResizeColumns = false;
-            this.m_dataFilms.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.m_dataFilms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_dataFilms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.m_dataFilms.ColumnHeadersVisible = false;
-            this.m_dataFilms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Titre,
-            this.idFilm});
-            this.m_dataFilms.Location = new System.Drawing.Point(3, 30);
-            this.m_dataFilms.MultiSelect = false;
-            this.m_dataFilms.Name = "m_dataFilms";
-            this.m_dataFilms.ReadOnly = true;
-            this.m_dataFilms.RowHeadersVisible = false;
-            this.m_dataFilms.RowTemplate.Height = 28;
-            this.m_dataFilms.Size = new System.Drawing.Size(251, 330);
-            this.m_dataFilms.TabIndex = 11;
-            this.m_dataFilms.SelectionChanged += new System.EventHandler(this.m_dataFilms_SelectionChanged);
-            // 
-=======
->>>>>>> Stashed changes
             // m_lblFilms
             // 
             this.m_lblFilms.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -226,12 +192,11 @@
             this.m_dataActors.AllowUserToDeleteRows = false;
             this.m_dataActors.AllowUserToResizeColumns = false;
             this.m_dataActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.m_dataActors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< Updated upstream
             this.m_dataActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.m_dataActors.ColumnHeadersVisible = false;
             this.m_dataActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -244,13 +209,21 @@
             this.m_dataActors.Size = new System.Drawing.Size(189, 159);
             this.m_dataActors.TabIndex = 26;
             this.m_dataActors.SelectionChanged += new System.EventHandler(this.m_dataActors_SelectionChanged);
-=======
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(629, 77);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(189, 159);
-            this.dataGridView3.TabIndex = 26;
->>>>>>> Stashed changes
+            // 
+            // idActeur
+            // 
+            this.idActeur.HeaderText = "idActeur";
+            this.idActeur.Name = "idActeur";
+            this.idActeur.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.idActeur.Visible = false;
+            // 
+            // Nom
+            // 
+            this.Nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nom.HeaderText = "Nom";
+            this.Nom.Name = "Nom";
+            this.Nom.ReadOnly = true;
+            this.Nom.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dataGridView2
             // 
@@ -268,13 +241,26 @@
             this.dataGridView2.Location = new System.Drawing.Point(489, 77);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
-<<<<<<< Updated upstream
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
-=======
->>>>>>> Stashed changes
             this.dataGridView2.Size = new System.Drawing.Size(134, 159);
             this.dataGridView2.TabIndex = 25;
+            // 
+            // idScenariste
+            // 
+            this.idScenariste.HeaderText = "idScenariste";
+            this.idScenariste.Name = "idScenariste";
+            this.idScenariste.ReadOnly = true;
+            this.idScenariste.Visible = false;
+            // 
+            // NomScenariste
+            // 
+            this.NomScenariste.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NomScenariste.HeaderText = "NomScenariste";
+            this.NomScenariste.Name = "NomScenariste";
+            this.NomScenariste.ReadOnly = true;
+            this.NomScenariste.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NomScenariste.Width = 5;
             // 
             // m_dataCountries
             // 
@@ -282,11 +268,10 @@
             this.m_dataCountries.AllowUserToDeleteRows = false;
             this.m_dataCountries.AllowUserToResizeColumns = false;
             this.m_dataCountries.AllowUserToResizeRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataCountries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataCountries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.m_dataCountries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-<<<<<<< Updated upstream
             this.m_dataCountries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.m_dataCountries.ColumnHeadersVisible = false;
             this.m_dataCountries.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -301,13 +286,20 @@
             this.m_dataCountries.Size = new System.Drawing.Size(138, 159);
             this.m_dataCountries.TabIndex = 12;
             this.m_dataCountries.SelectionChanged += new System.EventHandler(this.m_dataCountries_SelectionChanged);
-=======
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(345, 77);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(138, 159);
-            this.dataGridView1.TabIndex = 12;
->>>>>>> Stashed changes
+            // 
+            // idPays
+            // 
+            this.idPays.HeaderText = "idPays";
+            this.idPays.Name = "idPays";
+            this.idPays.ReadOnly = true;
+            this.idPays.Visible = false;
+            // 
+            // NomPays
+            // 
+            this.NomPays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NomPays.HeaderText = "NomPays";
+            this.NomPays.Name = "NomPays";
+            this.NomPays.ReadOnly = true;
             // 
             // label9
             // 
@@ -581,43 +573,11 @@
             this.m_btnEffacer.UseVisualStyleBackColor = true;
             this.m_btnEffacer.Click += new System.EventHandler(this.m_btnEffacer_Click);
             // 
-<<<<<<< Updated upstream
-            // idScenariste
-            // 
-            this.idScenariste.HeaderText = "idScenariste";
-            this.idScenariste.Name = "idScenariste";
-            this.idScenariste.ReadOnly = true;
-            this.idScenariste.Visible = false;
-            // 
-            // NomScenariste
-            // 
-            this.NomScenariste.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.NomScenariste.HeaderText = "NomScenariste";
-            this.NomScenariste.Name = "NomScenariste";
-            this.NomScenariste.ReadOnly = true;
-            this.NomScenariste.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NomScenariste.Width = 5;
-            // 
-            // idActeur
-            // 
-            this.idActeur.HeaderText = "idActeur";
-            this.idActeur.Name = "idActeur";
-            this.idActeur.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.idActeur.Visible = false;
-            // 
-            // Nom
-            // 
-            this.Nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nom.HeaderText = "Nom";
-            this.Nom.Name = "Nom";
-            this.Nom.ReadOnly = true;
-            this.Nom.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // Titre
             // 
             this.Titre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titre.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titre.DefaultCellStyle = dataGridViewCellStyle5;
             this.Titre.HeaderText = "Titre";
             this.Titre.Name = "Titre";
             this.Titre.ReadOnly = true;
@@ -630,28 +590,46 @@
             this.idFilm.ReadOnly = true;
             this.idFilm.Visible = false;
             // 
-            // idPays
+            // m_dataFilms
             // 
-            this.idPays.HeaderText = "idPays";
-            this.idPays.Name = "idPays";
-            this.idPays.ReadOnly = true;
-            this.idPays.Visible = false;
+            this.m_dataFilms.AllowUserToAddRows = false;
+            this.m_dataFilms.AllowUserToDeleteRows = false;
+            this.m_dataFilms.AllowUserToResizeColumns = false;
+            this.m_dataFilms.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.m_dataFilms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_dataFilms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.m_dataFilms.ColumnHeadersVisible = false;
+            this.m_dataFilms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.NomFilms});
+            this.m_dataFilms.Location = new System.Drawing.Point(3, 30);
+            this.m_dataFilms.MultiSelect = false;
+            this.m_dataFilms.Name = "m_dataFilms";
+            this.m_dataFilms.RowHeadersVisible = false;
+            this.m_dataFilms.RowTemplate.Height = 28;
+            this.m_dataFilms.Size = new System.Drawing.Size(250, 331);
+            this.m_dataFilms.TabIndex = 13;
+            this.m_dataFilms.SelectionChanged += new System.EventHandler(this.m_dataFilms_SelectionChanged);
             // 
-            // NomPays
+            // id
             // 
-            this.NomPays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NomPays.HeaderText = "NomPays";
-            this.NomPays.Name = "NomPays";
-            this.NomPays.ReadOnly = true;
-=======
-            // listBox1
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(-1, 30);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(255, 329);
-            this.listBox1.TabIndex = 10;
->>>>>>> Stashed changes
+            // NomFilms
+            // 
+            this.NomFilms.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomFilms.DefaultCellStyle = dataGridViewCellStyle2;
+            this.NomFilms.HeaderText = "NomFilms";
+            this.NomFilms.Name = "NomFilms";
+            this.NomFilms.ReadOnly = true;
+            this.NomFilms.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // FormFilmConsultations
             // 
@@ -678,7 +656,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fILMBindingSource)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -687,12 +664,9 @@
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.m_dataActors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-<<<<<<< Updated upstream
             ((System.ComponentModel.ISupportInitialize)(this.m_dataCountries)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fILMBindingSource)).EndInit();
-=======
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
->>>>>>> Stashed changes
+            ((System.ComponentModel.ISupportInitialize)(this.m_dataFilms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -737,7 +711,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView m_dataCountries;
         private System.Windows.Forms.BindingSource fILMBindingSource;
-<<<<<<< Updated upstream
         private System.Windows.Forms.DataGridViewTextBoxColumn idScenariste;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomScenariste;
         private System.Windows.Forms.DataGridViewTextBoxColumn idActeur;
@@ -746,8 +719,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idFilm;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPays;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomPays;
-=======
-        private System.Windows.Forms.ListBox listBox1;
->>>>>>> Stashed changes
+        private System.Windows.Forms.DataGridView m_dataFilms;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomFilms;
     }
 }
