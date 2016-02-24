@@ -16,6 +16,7 @@ namespace LOG660.UI
         public login()
         {
             InitializeComponent();
+            resetTextbox();
         }
 
         private void cmdConnect_Click(object sender, EventArgs e)
@@ -33,11 +34,15 @@ namespace LOG660.UI
             else
             {
                 MessageBox.Show("Vos paramètres de connexion  sont invalides veuillez recommencer","Erreur de connexion",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                this.txtPassword.Text = "";
-                this.txtUser.Text = "";
+                resetTextbox();
                 this.Refresh();
             }
 
+        }
+        private void resetTextbox()
+        {
+            this.txtPassword.Text = "vonej2ooT";
+            this.txtUser.Text = "ThomasCBaggett12@yahoo.com";
         }
     }
 }
