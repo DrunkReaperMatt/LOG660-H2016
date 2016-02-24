@@ -16,7 +16,10 @@ namespace LOG660.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
+            //Application.Run(new login());
+
+            // Test page UserControl merdique
+            Application.Run(new UI.Test.TestAdvancedSearch());
 
             // JP Test page principale
             //Application.Run(new filmsConsultation());
