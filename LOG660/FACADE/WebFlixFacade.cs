@@ -13,7 +13,7 @@ namespace LOG660.FACADE
 
         public static MovieEntityDataManager _entityWebFlixMgr;
         public WebFlixFacade() { }
-        
+
         //Singleton de  l'objet de la BD
         public static WebFlixFacade getInstance
         {
@@ -45,7 +45,7 @@ namespace LOG660.FACADE
         {
             if (!String.IsNullOrEmpty(usercode) && !String.IsNullOrEmpty(userPassword))
                 return _entityWebFlixMgr.USAGERs.FirstOrDefault(u => u.COURRIEL.ToLower().Equals(usercode.ToLower()) && u.MOTPASSE.Equals(userPassword));
-         
+
             return null;
         }
 
@@ -77,15 +77,33 @@ namespace LOG660.FACADE
                                                select location).Count();
 
             //Verify if the user can make some rent this movie
-            if (currentClientLocationAmount < maxLocationAllowed &&  exemplaires !=  0)
+            if (currentClientLocationAmount < maxLocationAllowed && exemplaires != 0)
             {
                 //We allow the location to be made
                 _entityWebFlixMgr.PROC_RENTMOVIE(idUsager, idFilm, idExemplaire);
                 return "La location du film a bel et bien été accepté.";
-            }           
+            }
 
             return "Aucune copie de ce film n'est disponible pour le moment";
         }
 
+        public static List<FILM> getFilmList(string query)
+        {
+            List<FILM> films = new List<FILM>();
+
+            var filmRechercheQuery = (
+                from film in _entityWebFlixMgr.FILMs.ToList()
+                where film.TITRE.ToLower().Contains( query.ToLower() )
+                select film
+                ).ToList();
+
+            films.AddRange(filmRechercheQuery);
+
+            return films;
+        }
+
+
     }
+
 }
+
