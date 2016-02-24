@@ -65,7 +65,7 @@ namespace LOG660.FACADE
             var exemplaires = _entityWebFlixMgr.EXEMPLAIREs.Count(e => e.IDFILM == idFilm);
 
             //get the user account type and the allowed number of locations for it
-            var maxLocationAllowed = (from forfait in _entityWebFlixMgr.FORFAITs.ToList()
+            var maxLocationAllowed = (from forfait in _entityWebFlixMgr.FORFAITs
                                       join cl in _entityWebFlixMgr.CLIENTs
                                       on forfait.IDFORFAIT equals cl.IDFORFAIT
                                       where currentClient.IDUSAGER == cl.IDUSAGER
