@@ -27,7 +27,7 @@ namespace LOG660.UI
             if (usager != null)
             {
                 this.Hide();
-                FormFilmConsultations form = new FormFilmConsultations(usager);
+                FormFilmConsultations form = new FormFilmConsultations(usager, this);
                 form.Show();
             }
             else
