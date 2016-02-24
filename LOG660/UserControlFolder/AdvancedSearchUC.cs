@@ -12,6 +12,9 @@ namespace LOG660.UserControlFolder
 {
     public partial class AdvancedSearchUC : UserControl
     {
+        public delegate void AddFieldEventHandler(object sender, EventArgs e);
+
+        public event AddFieldEventHandler addField;
         public AdvancedSearchUC()
         {
             InitializeComponent();
@@ -21,5 +24,12 @@ namespace LOG660.UserControlFolder
             get { return this.Height; }
         }
 
+        private void btnAddField_Click(object sender, EventArgs e)
+        {
+            if(addField != null)
+            {
+                addField(this, e);
+            }
+        }
     }
 }

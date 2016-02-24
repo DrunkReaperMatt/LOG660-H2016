@@ -65,6 +65,7 @@
             this.btnAddField.TabIndex = 2;
             this.btnAddField.Text = "+";
             this.btnAddField.UseVisualStyleBackColor = true;
+            this.btnAddField.Click += new System.EventHandler(this.btnAddField_Click);
             // 
             // pnlUC
             // 
