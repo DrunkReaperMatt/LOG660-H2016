@@ -19,9 +19,10 @@ namespace LOG660.UserControlFolder
         {
             InitializeComponent();
         }
-        public int Height
+
+        public int getHeight()
         {
-            get { return this.Height; }
+            return this.Height;
         }
 
         private void btnAddField_Click(object sender, EventArgs e)
@@ -30,6 +31,11 @@ namespace LOG660.UserControlFolder
             {
                 addField(this, e);
             }
+        }
+
+        public void disableButton()
+        {
+            btnAddField.Enabled = false;
         }
     }
 }

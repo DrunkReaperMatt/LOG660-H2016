@@ -49,13 +49,13 @@
             // 
             this.pnlAdvanced.Location = new System.Drawing.Point(13, 43);
             this.pnlAdvanced.Name = "pnlAdvanced";
-            this.pnlAdvanced.Size = new System.Drawing.Size(523, 33);
+            this.pnlAdvanced.Size = new System.Drawing.Size(523, 46);
             this.pnlAdvanced.TabIndex = 1;
             // 
             // pnlFilm
             // 
             this.pnlFilm.Controls.Add(this.txtFilm);
-            this.pnlFilm.Location = new System.Drawing.Point(13, 83);
+            this.pnlFilm.Location = new System.Drawing.Point(12, 281);
             this.pnlFilm.Name = "pnlFilm";
             this.pnlFilm.Size = new System.Drawing.Size(523, 100);
             this.pnlFilm.TabIndex = 2;
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 210);
+            this.ClientSize = new System.Drawing.Size(585, 457);
             this.Controls.Add(this.pnlFilm);
             this.Controls.Add(this.pnlAdvanced);
             this.Controls.Add(this.btnAdvancedSearch);
