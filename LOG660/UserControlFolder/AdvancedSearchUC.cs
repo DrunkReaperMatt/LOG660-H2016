@@ -12,7 +12,6 @@ namespace LOG660.UserControlFolder
 {
     public partial class AdvancedSearchUC : UserControl
     {
-        private event addFieldEvent;
         public AdvancedSearchUC()
         {
             InitializeComponent();
