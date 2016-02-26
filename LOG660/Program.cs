@@ -18,7 +18,7 @@ namespace LOG660.UI
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new login());
 
-            // Test page UserControl merdique
+            // Test page UserControl
             //Application.Run(new UI.Test.TestAdvancedSearch());
 
             // JP Test page principale

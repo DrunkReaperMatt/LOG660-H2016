@@ -17,6 +17,8 @@ namespace LOG660.UI
     {
         #region Fields
 
+        private List<UserControlFolder.AdvancedSearchUC> customUCList = new List<UserControlFolder.AdvancedSearchUC>();
+        private Boolean openAdvancedSearch = true;
         USAGER currentUser = null;
         FILM currentMovie = null;
         login m_loginPage = null;
@@ -40,6 +42,52 @@ namespace LOG660.UI
         #endregion
 
         #region Private Methods
+
+        private void openAdvancedSearchPanel()
+        {
+            if (openAdvancedSearch)
+            {
+                addUC();
+                openAdvancedSearch = false;
+            }
+        }
+        private void addUC()
+        {
+            UserControlFolder.AdvancedSearchUC uc = new UserControlFolder.AdvancedSearchUC();
+            uc.fieldEventHandler += new UserControlFolder.AdvancedSearchUC.FieldEventHandler(handleFieldEvent);
+            uc.Location = new Point(uc.Location.X, customUCList.Count * uc.Height);
+            pnlAdvanced.Size = new Size(pnlAdvanced.Width, pnlAdvanced.Size.Height + uc.Height);
+
+            relocateControls(uc.Height);
+
+            customUCList.Add(uc);
+            pnlAdvanced.Controls.Add(uc);
+            if (customUCList.Count >= 2)
+            {
+                customUCList[customUCList.Count - 2].disableButton();
+            }
+        }
+
+        private void removeUC()
+        {
+            UserControlFolder.AdvancedSearchUC uc = customUCList[customUCList.Count - 1];
+            pnlAdvanced.Size = new Size(pnlAdvanced.Width, pnlAdvanced.Size.Height - uc.Height);
+
+            relocateControls(uc.Height * -1);
+
+            customUCList.Remove(uc);
+            pnlAdvanced.Controls.Remove(uc);
+            if (customUCList.Count >= 1)
+            {
+                customUCList[customUCList.Count - 1].enableButton();
+            }
+        }
+
+        private void relocateControls(int modifier)
+        {
+            panel1.Location = new Point(panel1.Location.X, panel1.Location.Y + modifier);
+            m_btnLouerFilm.Location = new Point(m_btnLouerFilm.Location.X, m_btnLouerFilm.Location.Y + modifier);
+        }
 
         private void displayActorInfoById(int id)
         {
@@ -136,6 +184,29 @@ namespace LOG660.UI
 
         #region Event Handlers
 
+        private void handleFieldEvent(object sender, int eventIdentification)
+        {
+            if (eventIdentification == UserControlFolder.AdvancedSearchUC.ADD_EVENT_IDENTIFIER)
+            {
+                addUC();
+            }
+            else if (eventIdentification == UserControlFolder.AdvancedSearchUC.REMOVE_EVENT_IDENTIFIER)
+            {
+                if (customUCList.Count == 1)
+                {
+                    this.m_btnOptionsRecherche.Enabled = true;
+                    openAdvancedSearch = true;
+                }
+                removeUC();
+            }
+        }
+
+        private void m_btnOptionsRecherche_Click(object sender, EventArgs e)
+        {
+            openAdvancedSearchPanel();
+            ((System.Windows.Forms.Button)sender).Enabled = false;
+        }
+
         private void FormFilmConsultations_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -210,5 +281,7 @@ namespace LOG660.UI
         }
 
         #endregion
+
+      
     }
 }

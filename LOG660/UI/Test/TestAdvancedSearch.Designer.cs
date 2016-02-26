@@ -30,9 +30,10 @@
         {
             this.btnAdvancedSearch = new System.Windows.Forms.Button();
             this.pnlAdvanced = new System.Windows.Forms.Panel();
-            this.pnlFilm = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.txtFilm = new System.Windows.Forms.Label();
-            this.pnlFilm.SuspendLayout();
+            this.m_btnLouerFilm = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAdvancedSearch
@@ -49,16 +50,16 @@
             // 
             this.pnlAdvanced.Location = new System.Drawing.Point(13, 43);
             this.pnlAdvanced.Name = "pnlAdvanced";
-            this.pnlAdvanced.Size = new System.Drawing.Size(523, 46);
+            this.pnlAdvanced.Size = new System.Drawing.Size(523, 15);
             this.pnlAdvanced.TabIndex = 1;
             // 
-            // pnlFilm
+            // panel1
             // 
-            this.pnlFilm.Controls.Add(this.txtFilm);
-            this.pnlFilm.Location = new System.Drawing.Point(12, 281);
-            this.pnlFilm.Name = "pnlFilm";
-            this.pnlFilm.Size = new System.Drawing.Size(523, 100);
-            this.pnlFilm.TabIndex = 2;
+            this.panel1.Controls.Add(this.txtFilm);
+            this.panel1.Location = new System.Drawing.Point(12, 64);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(523, 352);
+            this.panel1.TabIndex = 2;
             // 
             // txtFilm
             // 
@@ -69,18 +70,29 @@
             this.txtFilm.TabIndex = 0;
             this.txtFilm.Text = "Ouah Film";
             // 
+            // m_btnLouerFilm
+            // 
+            this.m_btnLouerFilm.Location = new System.Drawing.Point(498, 422);
+            this.m_btnLouerFilm.Name = "m_btnLouerFilm";
+            this.m_btnLouerFilm.Size = new System.Drawing.Size(75, 23);
+            this.m_btnLouerFilm.TabIndex = 3;
+            this.m_btnLouerFilm.Text = "button1";
+            this.m_btnLouerFilm.UseVisualStyleBackColor = true;
+            // 
             // TestAdvancedSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(585, 457);
-            this.Controls.Add(this.pnlFilm);
+            this.Controls.Add(this.m_btnLouerFilm);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlAdvanced);
             this.Controls.Add(this.btnAdvancedSearch);
             this.Name = "TestAdvancedSearch";
             this.Text = "TestAdvancedSearch";
-            this.pnlFilm.ResumeLayout(false);
-            this.pnlFilm.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -89,7 +101,8 @@
 
         private System.Windows.Forms.Button btnAdvancedSearch;
         private System.Windows.Forms.Panel pnlAdvanced;
-        private System.Windows.Forms.Panel pnlFilm;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label txtFilm;
+        private System.Windows.Forms.Button m_btnLouerFilm;
     }
 }

@@ -32,6 +32,7 @@
             this.cboField = new System.Windows.Forms.ComboBox();
             this.btnAddField = new System.Windows.Forms.Button();
             this.pnlUC = new System.Windows.Forms.Panel();
+            this.btnRemoveField = new System.Windows.Forms.Button();
             this.pnlUC.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,13 +70,24 @@
             // 
             // pnlUC
             // 
+            this.pnlUC.Controls.Add(this.btnRemoveField);
             this.pnlUC.Controls.Add(this.cboField);
             this.pnlUC.Controls.Add(this.btnAddField);
             this.pnlUC.Controls.Add(this.txtSearchText);
             this.pnlUC.Location = new System.Drawing.Point(3, 3);
             this.pnlUC.Name = "pnlUC";
-            this.pnlUC.Size = new System.Drawing.Size(437, 30);
+            this.pnlUC.Size = new System.Drawing.Size(488, 30);
             this.pnlUC.TabIndex = 3;
+            // 
+            // btnRemoveField
+            // 
+            this.btnRemoveField.Location = new System.Drawing.Point(437, 3);
+            this.btnRemoveField.Name = "btnRemoveField";
+            this.btnRemoveField.Size = new System.Drawing.Size(37, 23);
+            this.btnRemoveField.TabIndex = 3;
+            this.btnRemoveField.Text = "-";
+            this.btnRemoveField.UseVisualStyleBackColor = true;
+            this.btnRemoveField.Click += new System.EventHandler(this.btnRemoveField_Click);
             // 
             // AdvancedSearchUC
             // 
@@ -83,7 +95,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlUC);
             this.Name = "AdvancedSearchUC";
-            this.Size = new System.Drawing.Size(443, 36);
+            this.Size = new System.Drawing.Size(494, 36);
             this.pnlUC.ResumeLayout(false);
             this.pnlUC.PerformLayout();
             this.ResumeLayout(false);
@@ -96,5 +108,6 @@
         private System.Windows.Forms.ComboBox cboField;
         private System.Windows.Forms.Button btnAddField;
         private System.Windows.Forms.Panel pnlUC;
+        private System.Windows.Forms.Button btnRemoveField;
     }
 }
