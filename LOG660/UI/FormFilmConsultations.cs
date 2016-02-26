@@ -221,6 +221,12 @@ namespace LOG660.UI
         private void m_btnEffacer_Click(object sender, EventArgs e)
         {
             m_txtRecherche.Text = String.Empty;
+            while(customUCList.Count != 0)
+            {
+                removeUC();
+            }
+            this.m_btnOptionsRecherche.Enabled = true;
+            openAdvancedSearch = true;
         }
 
         private void m_btnDeconnexion_Click(object sender, EventArgs e)
@@ -274,8 +280,16 @@ namespace LOG660.UI
             {
                 var web = WebFlixFacade.getInstance;
 
-                List<FILM> films = WebFlixFacade.getFilmList(m_txtRecherche.Text);
-                DisplayMovies(films);
+                if(!openAdvancedSearch)
+                {
+                    List<FILM> films = WebFlixFacade.getFilmList(m_txtRecherche.Text);
+                    DisplayMovies(films);
+                }
+                else 
+                {
+                    
+
+                }
             }
             ));
         }

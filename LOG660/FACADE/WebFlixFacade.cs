@@ -102,6 +102,20 @@ namespace LOG660.FACADE
             return films;
         }
 
+        /*public static List<FILM> getFilmList()
+        {
+            List<FILM> films = new List<FILM>();
+
+            var filmRechercheQuery = (
+                from film in _entityWebFlixMgr.FILMs.ToList()
+                where film.TITRE.ToLower().Contains(query.ToLower())
+                select film
+                ).ToList();
+
+            films.AddRange(filmRechercheQuery);
+
+            return films;
+        }*/
 
     }
 

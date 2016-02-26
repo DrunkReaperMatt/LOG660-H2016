@@ -46,13 +46,6 @@
             // cboField
             // 
             this.cboField.FormattingEnabled = true;
-            this.cboField.Items.AddRange(new object[] {
-            "Années",
-            "Pays",
-            "Langue",
-            "Genres",
-            "Réalisateur",
-            "Acteur"});
             this.cboField.Location = new System.Drawing.Point(3, 3);
             this.cboField.Name = "cboField";
             this.cboField.Size = new System.Drawing.Size(138, 21);
