@@ -54,6 +54,7 @@ namespace LOG660.UI
         private void addUC()
         {
             UserControlFolder.AdvancedSearchUC uc = new UserControlFolder.AdvancedSearchUC();
+            uc.searchChangedEventHandler += new UserControlFolder.AdvancedSearchUC.SearchChangedEventHandler(SearchChanged);
             uc.fieldEventHandler += new UserControlFolder.AdvancedSearchUC.FieldEventHandler(handleFieldEvent);
             uc.Location = new Point(uc.Location.X, customUCList.Count * uc.Height);
             pnlAdvanced.Size = new Size(pnlAdvanced.Width, pnlAdvanced.Size.Height + uc.Height);
@@ -263,12 +264,12 @@ namespace LOG660.UI
             displayMovieInfoById(Convert.ToInt32(id));
         }
 
-        private void m_txtRecherche_KeyUp(object sender, KeyEventArgs e)
+        private void SearchChanged(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Escape)
+            /*if(e.KeyCode == Keys.Escape)
             {
                 m_txtRecherche.Text = String.Empty;
-            }
+            }*/
             m_timer.Start();
         }
 
@@ -279,17 +280,16 @@ namespace LOG660.UI
             BeginInvoke(new Action(() =>
             {
                 var web = WebFlixFacade.getInstance;
-
-                if(!openAdvancedSearch)
+                List<FILM> films = new List<FILM>();
+                if(openAdvancedSearch)
                 {
-                    List<FILM> films = WebFlixFacade.getFilmList(m_txtRecherche.Text);
-                    DisplayMovies(films);
+                    films = WebFlixFacade.getFilmList(m_txtRecherche.Text);
                 }
                 else 
                 {
-                    
-
+                    films = WebFlixFacade.getFilmList(m_txtRecherche.Text, customUCList);
                 }
+                DisplayMovies(films);
             }
             ));
         }

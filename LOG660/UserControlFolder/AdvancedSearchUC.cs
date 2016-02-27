@@ -22,6 +22,8 @@ namespace LOG660.UserControlFolder
         public const int REALISATEUR_IDENTIFIER = 5;
         public const int ACTEUR_IDENTIFIER = 6;
         public delegate void FieldEventHandler(object sender, int eventArgIdentifier);
+        public delegate void SearchChangedEventHandler(object sender, KeyEventArgs e);
+        public event SearchChangedEventHandler searchChangedEventHandler;
         public event FieldEventHandler fieldEventHandler;
 
         public AdvancedSearchUC()
@@ -44,6 +46,11 @@ namespace LOG660.UserControlFolder
         public int getValue()
         {
             return ((KeyValuePair<string, int>)cboField.SelectedItem).Value;
+        }
+
+        public string getText()
+        {
+            return txtSearchText.Text;
         }
 
         public void disableButton()
@@ -71,6 +78,22 @@ namespace LOG660.UserControlFolder
             if (fieldEventHandler != null)
             {
                 fieldEventHandler(this, REMOVE_EVENT_IDENTIFIER);
+            }
+        }
+
+        private void txtSearchText_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (searchChangedEventHandler != null)
+            {
+                searchChangedEventHandler(this, null);
+            }
+        }
+
+        private void cboField_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (searchChangedEventHandler != null)
+            {
+                searchChangedEventHandler(this, null);
             }
         }
     }

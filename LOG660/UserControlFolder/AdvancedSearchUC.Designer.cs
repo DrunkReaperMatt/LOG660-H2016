@@ -42,6 +42,7 @@
             this.txtSearchText.Name = "txtSearchText";
             this.txtSearchText.Size = new System.Drawing.Size(241, 20);
             this.txtSearchText.TabIndex = 0;
+            this.txtSearchText.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchText_KeyUp);
             // 
             // cboField
             // 
@@ -50,6 +51,7 @@
             this.cboField.Name = "cboField";
             this.cboField.Size = new System.Drawing.Size(138, 21);
             this.cboField.TabIndex = 1;
+            this.cboField.SelectedIndexChanged += new System.EventHandler(this.cboField_SelectedIndexChanged);
             // 
             // btnAddField
             // 

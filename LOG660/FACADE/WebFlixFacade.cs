@@ -102,20 +102,46 @@ namespace LOG660.FACADE
             return films;
         }
 
-        /*public static List<FILM> getFilmList()
+        public static List<FILM> getFilmList(string query, List<UserControlFolder.AdvancedSearchUC> UCs)
         {
-            List<FILM> films = new List<FILM>();
+            List<FILM> x = new List<FILM>();
+            var advancedSearch = x;
+            var basicSearch = x;
 
-            var filmRechercheQuery = (
+            if(!query.Equals(""))
+            {
+                basicSearch = (
                 from film in _entityWebFlixMgr.FILMs.ToList()
                 where film.TITRE.ToLower().Contains(query.ToLower())
                 select film
                 ).ToList();
+            }
+            for (int i = 0; i < UCs.Count; i++ )
+            {
+                if(!(UCs[i].getText().Trim().Equals("")))
+                {
+                    if (UCs[i].getValue() == UserControlFolder.AdvancedSearchUC.LANGUE_IDENTIFIER)
+                    {
+                        advancedSearch = (
+                        from film in _entityWebFlixMgr.FILMs.ToList()
+                        where film.LANGUEORIGINAL != null && film.LANGUEORIGINAL.ToLower().Equals(UCs[i].getText().Trim().ToLower())
+                        select film
+                        ).ToList();
+                    }
+                    else if(UCs[i].getValue() == UserControlFolder.AdvancedSearchUC.CHAINE_IDENTIFIER)
+                    {
+                        advancedSearch = (
+                        from film in _entityWebFlixMgr.FILMs.ToList()
+                        where film.TITRE.ToLower().Contains(UCs[i].getText().ToLower())
+                        select film
+                        ).ToList();
+                    }
+                    basicSearch = basicSearch.Intersect(advancedSearch).ToList();
+                }
+            }
 
-            films.AddRange(filmRechercheQuery);
-
-            return films;
-        }*/
+            return basicSearch.ToList();
+        }
 
     }
 
