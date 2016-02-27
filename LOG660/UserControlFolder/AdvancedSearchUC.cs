@@ -50,7 +50,7 @@ namespace LOG660.UserControlFolder
 
         public string getText()
         {
-            return txtSearchText.Text;
+            return txtSearchText.Text.ToString();
         }
 
         public void disableButton()
@@ -91,6 +91,7 @@ namespace LOG660.UserControlFolder
 
         private void cboField_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtSearchText.Text = String.Empty;
             if (searchChangedEventHandler != null)
             {
                 searchChangedEventHandler(this, null);

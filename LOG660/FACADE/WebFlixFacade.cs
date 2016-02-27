@@ -105,34 +105,51 @@ namespace LOG660.FACADE
         public static List<FILM> getFilmList(string query, List<UserControlFolder.AdvancedSearchUC> UCs)
         {
             List<FILM> x = new List<FILM>();
+            String textToSearch = "";
             var advancedSearch = x;
             var basicSearch = x;
 
             if(!query.Equals(""))
             {
                 basicSearch = (
-                from film in _entityWebFlixMgr.FILMs.ToList()
+                from film in _entityWebFlixMgr.FILMs
                 where film.TITRE.ToLower().Contains(query.ToLower())
+                select film
+                ).ToList();
+            }
+            else
+            {
+                basicSearch = (
+                from film in _entityWebFlixMgr.FILMs
                 select film
                 ).ToList();
             }
             for (int i = 0; i < UCs.Count; i++ )
             {
-                if(!(UCs[i].getText().Trim().Equals("")))
+                textToSearch = UCs[i].getText().Trim().ToLower();
+                if (!(textToSearch.Equals("")))
                 {
                     if (UCs[i].getValue() == UserControlFolder.AdvancedSearchUC.LANGUE_IDENTIFIER)
                     {
                         advancedSearch = (
-                        from film in _entityWebFlixMgr.FILMs.ToList()
-                        where film.LANGUEORIGINAL != null && film.LANGUEORIGINAL.ToLower().Equals(UCs[i].getText().Trim().ToLower())
+                        from film in _entityWebFlixMgr.FILMs
+                        where film.LANGUEORIGINAL != null && film.LANGUEORIGINAL.ToLower().Equals(textToSearch)
+                        select film
+                        ).ToList();
+                    }
+                    if (UCs[i].getValue() == UserControlFolder.AdvancedSearchUC.PAYS_IDENTIFIER)
+                    {
+                        advancedSearch = (
+                        from film in _entityWebFlixMgr.FILMs
+                        where film.PAYSPRODUCTIONs.Any(p => p.NOM.ToLower().Equals(textToSearch))
                         select film
                         ).ToList();
                     }
                     else if(UCs[i].getValue() == UserControlFolder.AdvancedSearchUC.CHAINE_IDENTIFIER)
                     {
                         advancedSearch = (
-                        from film in _entityWebFlixMgr.FILMs.ToList()
-                        where film.TITRE.ToLower().Contains(UCs[i].getText().ToLower())
+                        from film in _entityWebFlixMgr.FILMs
+                        where film.TITRE.ToLower().Contains(textToSearch)
                         select film
                         ).ToList();
                     }
