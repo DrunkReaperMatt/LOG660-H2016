@@ -46,6 +46,7 @@
             // 
             // cboField
             // 
+            this.cboField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboField.FormattingEnabled = true;
             this.cboField.Location = new System.Drawing.Point(3, 3);
             this.cboField.Name = "cboField";

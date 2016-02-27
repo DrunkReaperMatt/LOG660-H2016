@@ -86,8 +86,9 @@ namespace LOG660.UI
 
         private void relocateControls(int modifier)
         {
-            panel1.Location = new Point(panel1.Location.X, panel1.Location.Y + modifier);
-            m_btnLouerFilm.Location = new Point(m_btnLouerFilm.Location.X, m_btnLouerFilm.Location.Y + modifier);
+            // JP: Plus besoin de ça, parce que dock.
+            //panel1.Location = new Point(panel1.Location.X, panel1.Location.Y + modifier);
+            //m_btnLouerFilm.Location = new Point(m_btnLouerFilm.Location.X, m_btnLouerFilm.Location.Y + modifier);
         }
 
         private void displayActorInfoById(int id)

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.m_dataFilms = new System.Windows.Forms.DataGridView();
@@ -71,9 +71,10 @@
             this.m_lblDateNaissance = new System.Windows.Forms.Label();
             this.m_lblNomActeur = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.m_bottomPanel = new System.Windows.Forms.Panel();
+            this.m_btnLouerFilm = new System.Windows.Forms.Button();
             this.fILMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.m_btnDeconnexion = new System.Windows.Forms.Button();
-            this.m_btnLouerFilm = new System.Windows.Forms.Button();
             this.m_lblNomClient = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.m_txtRecherche = new System.Windows.Forms.TextBox();
@@ -83,6 +84,7 @@
             this.idFilm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlAdvanced = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.m_topPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -96,20 +98,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.m_dataActors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dataCountries)).BeginInit();
+            this.m_bottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fILMBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
+            this.m_topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.splitContainer1);
-            this.panel1.Location = new System.Drawing.Point(13, 59);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 44);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1086, 390);
+            this.panel1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.panel1.Size = new System.Drawing.Size(1148, 434);
             this.panel1.TabIndex = 0;
             // 
             // splitContainer1
@@ -118,7 +122,7 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -131,8 +135,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1086, 390);
-            this.splitContainer1.SplitterDistance = 259;
+            this.splitContainer1.Size = new System.Drawing.Size(1145, 434);
+            this.splitContainer1.SplitterDistance = 273;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -142,8 +146,8 @@
             this.m_dataFilms.AllowUserToDeleteRows = false;
             this.m_dataFilms.AllowUserToResizeColumns = false;
             this.m_dataFilms.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.m_dataFilms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -157,7 +161,7 @@
             this.m_dataFilms.Name = "m_dataFilms";
             this.m_dataFilms.RowHeadersVisible = false;
             this.m_dataFilms.RowTemplate.Height = 28;
-            this.m_dataFilms.Size = new System.Drawing.Size(250, 359);
+            this.m_dataFilms.Size = new System.Drawing.Size(265, 400);
             this.m_dataFilms.TabIndex = 13;
             this.m_dataFilms.SelectionChanged += new System.EventHandler(this.m_dataFilms_SelectionChanged);
             // 
@@ -170,8 +174,8 @@
             // NomFilms
             // 
             this.NomFilms.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NomFilms.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomFilms.DefaultCellStyle = dataGridViewCellStyle22;
             this.NomFilms.HeaderText = "NomFilms";
             this.NomFilms.Name = "NomFilms";
             this.NomFilms.ReadOnly = true;
@@ -182,7 +186,7 @@
             this.m_lblFilms.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.m_lblFilms.AutoSize = true;
             this.m_lblFilms.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_lblFilms.Location = new System.Drawing.Point(109, 10);
+            this.m_lblFilms.Location = new System.Drawing.Point(113, 10);
             this.m_lblFilms.Name = "m_lblFilms";
             this.m_lblFilms.Size = new System.Drawing.Size(45, 17);
             this.m_lblFilms.TabIndex = 10;
@@ -198,6 +202,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.Controls.Add(this.m_dataActors);
             this.splitContainer2.Panel1.Controls.Add(this.dataGridView2);
             this.splitContainer2.Panel1.Controls.Add(this.m_dataCountries);
@@ -225,8 +230,8 @@
             this.splitContainer2.Panel2.Controls.Add(this.m_lblDateNaissance);
             this.splitContainer2.Panel2.Controls.Add(this.m_lblNomActeur);
             this.splitContainer2.Panel2.Controls.Add(this.label12);
-            this.splitContainer2.Size = new System.Drawing.Size(826, 390);
-            this.splitContainer2.SplitterDistance = 243;
+            this.splitContainer2.Size = new System.Drawing.Size(871, 434);
+            this.splitContainer2.SplitterDistance = 269;
             this.splitContainer2.TabIndex = 0;
             // 
             // m_dataActors
@@ -235,8 +240,8 @@
             this.m_dataActors.AllowUserToDeleteRows = false;
             this.m_dataActors.AllowUserToResizeColumns = false;
             this.m_dataActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
             this.m_dataActors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -249,7 +254,7 @@
             this.m_dataActors.MultiSelect = false;
             this.m_dataActors.Name = "m_dataActors";
             this.m_dataActors.RowHeadersVisible = false;
-            this.m_dataActors.Size = new System.Drawing.Size(189, 96);
+            this.m_dataActors.Size = new System.Drawing.Size(237, 187);
             this.m_dataActors.TabIndex = 26;
             this.m_dataActors.SelectionChanged += new System.EventHandler(this.m_dataActors_SelectionChanged);
             // 
@@ -286,7 +291,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(134, 96);
+            this.dataGridView2.Size = new System.Drawing.Size(134, 187);
             this.dataGridView2.TabIndex = 25;
             // 
             // idScenariste
@@ -311,8 +316,8 @@
             this.m_dataCountries.AllowUserToDeleteRows = false;
             this.m_dataCountries.AllowUserToResizeColumns = false;
             this.m_dataCountries.AllowUserToResizeRows = false;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataCountries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataCountries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
             this.m_dataCountries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.m_dataCountries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -326,7 +331,7 @@
             this.m_dataCountries.Name = "m_dataCountries";
             this.m_dataCountries.ReadOnly = true;
             this.m_dataCountries.RowHeadersVisible = false;
-            this.m_dataCountries.Size = new System.Drawing.Size(138, 96);
+            this.m_dataCountries.Size = new System.Drawing.Size(138, 187);
             this.m_dataCountries.TabIndex = 12;
             this.m_dataCountries.SelectionChanged += new System.EventHandler(this.m_dataCountries_SelectionChanged);
             // 
@@ -467,7 +472,7 @@
             this.m_lblTitreFilm.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.m_lblTitreFilm.AutoSize = true;
             this.m_lblTitreFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_lblTitreFilm.Location = new System.Drawing.Point(376, 10);
+            this.m_lblTitreFilm.Location = new System.Drawing.Point(389, 10);
             this.m_lblTitreFilm.Name = "m_lblTitreFilm";
             this.m_lblTitreFilm.Size = new System.Drawing.Size(76, 17);
             this.m_lblTitreFilm.TabIndex = 12;
@@ -523,7 +528,7 @@
             this.m_lblNomActeur.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.m_lblNomActeur.AutoSize = true;
             this.m_lblNomActeur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_lblNomActeur.Location = new System.Drawing.Point(388, 10);
+            this.m_lblNomActeur.Location = new System.Drawing.Point(401, 10);
             this.m_lblNomActeur.Name = "m_lblNomActeur";
             this.m_lblNomActeur.Size = new System.Drawing.Size(55, 17);
             this.m_lblNomActeur.TabIndex = 25;
@@ -538,21 +543,19 @@
             this.label12.TabIndex = 25;
             this.label12.Text = "Date Naissance:";
             // 
-            // m_btnDeconnexion
+            // m_bottomPanel
             // 
-            this.m_btnDeconnexion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btnDeconnexion.Location = new System.Drawing.Point(1010, 19);
-            this.m_btnDeconnexion.Name = "m_btnDeconnexion";
-            this.m_btnDeconnexion.Size = new System.Drawing.Size(89, 23);
-            this.m_btnDeconnexion.TabIndex = 1;
-            this.m_btnDeconnexion.Text = "Déconnexion";
-            this.m_btnDeconnexion.UseVisualStyleBackColor = true;
-            this.m_btnDeconnexion.Click += new System.EventHandler(this.m_btnDeconnexion_Click);
+            this.m_bottomPanel.Controls.Add(this.m_btnLouerFilm);
+            this.m_bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.m_bottomPanel.Location = new System.Drawing.Point(0, 478);
+            this.m_bottomPanel.Name = "m_bottomPanel";
+            this.m_bottomPanel.Size = new System.Drawing.Size(1148, 28);
+            this.m_bottomPanel.TabIndex = 12;
             // 
             // m_btnLouerFilm
             // 
             this.m_btnLouerFilm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_btnLouerFilm.Location = new System.Drawing.Point(1010, 455);
+            this.m_btnLouerFilm.Location = new System.Drawing.Point(1060, 4);
             this.m_btnLouerFilm.Name = "m_btnLouerFilm";
             this.m_btnLouerFilm.Size = new System.Drawing.Size(89, 23);
             this.m_btnLouerFilm.TabIndex = 2;
@@ -560,12 +563,23 @@
             this.m_btnLouerFilm.UseVisualStyleBackColor = true;
             this.m_btnLouerFilm.Click += new System.EventHandler(this.m_btnLouerFilm_Click);
             // 
+            // m_btnDeconnexion
+            // 
+            this.m_btnDeconnexion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_btnDeconnexion.Location = new System.Drawing.Point(1059, 14);
+            this.m_btnDeconnexion.Name = "m_btnDeconnexion";
+            this.m_btnDeconnexion.Size = new System.Drawing.Size(89, 23);
+            this.m_btnDeconnexion.TabIndex = 1;
+            this.m_btnDeconnexion.Text = "Déconnexion";
+            this.m_btnDeconnexion.UseVisualStyleBackColor = true;
+            this.m_btnDeconnexion.Click += new System.EventHandler(this.m_btnDeconnexion_Click);
+            // 
             // m_lblNomClient
             // 
             this.m_lblNomClient.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.m_lblNomClient.AutoSize = true;
             this.m_lblNomClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_lblNomClient.Location = new System.Drawing.Point(499, 3);
+            this.m_lblNomClient.Location = new System.Drawing.Point(536, 0);
             this.m_lblNomClient.Name = "m_lblNomClient";
             this.m_lblNomClient.Size = new System.Drawing.Size(96, 20);
             this.m_lblNomClient.TabIndex = 3;
@@ -574,7 +588,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 19);
+            this.label3.Location = new System.Drawing.Point(4, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 4;
@@ -582,7 +596,7 @@
             // 
             // m_txtRecherche
             // 
-            this.m_txtRecherche.Location = new System.Drawing.Point(75, 19);
+            this.m_txtRecherche.Location = new System.Drawing.Point(76, 16);
             this.m_txtRecherche.Name = "m_txtRecherche";
             this.m_txtRecherche.Size = new System.Drawing.Size(139, 20);
             this.m_txtRecherche.TabIndex = 5;
@@ -590,7 +604,7 @@
             // 
             // m_btnOptionsRecherche
             // 
-            this.m_btnOptionsRecherche.Location = new System.Drawing.Point(275, 17);
+            this.m_btnOptionsRecherche.Location = new System.Drawing.Point(276, 14);
             this.m_btnOptionsRecherche.Name = "m_btnOptionsRecherche";
             this.m_btnOptionsRecherche.Size = new System.Drawing.Size(119, 23);
             this.m_btnOptionsRecherche.TabIndex = 7;
@@ -600,7 +614,7 @@
             // 
             // m_btnEffacer
             // 
-            this.m_btnEffacer.Location = new System.Drawing.Point(220, 17);
+            this.m_btnEffacer.Location = new System.Drawing.Point(221, 14);
             this.m_btnEffacer.Name = "m_btnEffacer";
             this.m_btnEffacer.Size = new System.Drawing.Size(49, 23);
             this.m_btnEffacer.TabIndex = 9;
@@ -611,8 +625,8 @@
             // Titre
             // 
             this.Titre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titre.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titre.DefaultCellStyle = dataGridViewCellStyle25;
             this.Titre.HeaderText = "Titre";
             this.Titre.Name = "Titre";
             this.Titre.ReadOnly = true;
@@ -628,34 +642,47 @@
             // pnlAdvanced
             // 
             this.pnlAdvanced.AutoScroll = true;
-            this.pnlAdvanced.Location = new System.Drawing.Point(6, 43);
+            this.pnlAdvanced.AutoSize = true;
+            this.pnlAdvanced.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlAdvanced.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAdvanced.Location = new System.Drawing.Point(0, 44);
             this.pnlAdvanced.Name = "pnlAdvanced";
-            this.pnlAdvanced.Size = new System.Drawing.Size(627, 10);
+            this.pnlAdvanced.Size = new System.Drawing.Size(1148, 0);
             this.pnlAdvanced.TabIndex = 10;
             // 
             // panel2
             // 
             this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.m_lblNomClient);
-            this.panel2.Controls.Add(this.m_btnLouerFilm);
-            this.panel2.Controls.Add(this.pnlAdvanced);
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.m_btnDeconnexion);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.m_txtRecherche);
-            this.panel2.Controls.Add(this.m_btnEffacer);
-            this.panel2.Controls.Add(this.m_btnOptionsRecherche);
+            this.panel2.Controls.Add(this.m_bottomPanel);
+            this.panel2.Controls.Add(this.pnlAdvanced);
+            this.panel2.Controls.Add(this.m_topPanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1109, 483);
+            this.panel2.Size = new System.Drawing.Size(1148, 506);
             this.panel2.TabIndex = 11;
+            // 
+            // m_topPanel
+            // 
+            this.m_topPanel.Controls.Add(this.m_lblNomClient);
+            this.m_topPanel.Controls.Add(this.m_btnOptionsRecherche);
+            this.m_topPanel.Controls.Add(this.m_btnEffacer);
+            this.m_topPanel.Controls.Add(this.m_txtRecherche);
+            this.m_topPanel.Controls.Add(this.label3);
+            this.m_topPanel.Controls.Add(this.m_btnDeconnexion);
+            this.m_topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.m_topPanel.Location = new System.Drawing.Point(0, 0);
+            this.m_topPanel.Name = "m_topPanel";
+            this.m_topPanel.Size = new System.Drawing.Size(1148, 44);
+            this.m_topPanel.TabIndex = 11;
             // 
             // FormFilmConsultations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 493);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1158, 516);
             this.Controls.Add(this.panel2);
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(1100, 500);
@@ -679,9 +706,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.m_dataActors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dataCountries)).EndInit();
+            this.m_bottomPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fILMBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.m_topPanel.ResumeLayout(false);
+            this.m_topPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -737,5 +767,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NomFilms;
         private System.Windows.Forms.Panel pnlAdvanced;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel m_bottomPanel;
+        private System.Windows.Forms.Panel m_topPanel;
     }
 }
