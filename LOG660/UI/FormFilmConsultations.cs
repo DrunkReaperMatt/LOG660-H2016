@@ -91,18 +91,37 @@ namespace LOG660.UI
             //m_btnLouerFilm.Location = new Point(m_btnLouerFilm.Location.X, m_btnLouerFilm.Location.Y + modifier);
         }
 
-        private void displayActorInfoById(int id)
+        private void ClearListsSelection(DataGridView sender)
+        {
+            if (!m_clearingSelection)
+            {
+                m_clearingSelection = true;
+
+                if(sender != m_dataScreenWriters)
+                    m_dataScreenWriters.ClearSelection();
+
+                if (sender != m_dataActors)
+                    m_dataActors.ClearSelection();
+
+                if (sender != m_dataProducer)
+                    m_dataProducer.ClearSelection();
+
+                m_clearingSelection = false;
+            }
+        }
+
+        private void displayPersonneInfoById(int id)
         {
             var naString = "NA";
             if (id >= 0)
             {
-                var actor = m_facade.getEntity.ACTEURs.FirstOrDefault(a => a.IDPERSONNE == id);
-                if (actor != null)
+                var personne = m_facade.getEntity.PERSONNEs.FirstOrDefault(a => a.IDPERSONNE == id);
+                if (personne != null)
                 {
-                    m_lblNomActeur.Text = actor.PERSONNE.NOM;
-                    m_lblDateNaissance.Text = actor.PERSONNE.DATENAISSANCE != null ? actor.PERSONNE.DATENAISSANCE.Value.ToString() : naString;
-                    m_lblLieuNaissance.Text = actor.PERSONNE.LIEUNAISSANCE != null ? actor.PERSONNE.LIEUNAISSANCE : naString;
-                    m_lblBiographie.Text = actor.PERSONNE.BIOGRAPHIE.BIOGRAPHIE1 != null ? actor.PERSONNE.BIOGRAPHIE.BIOGRAPHIE1 : naString;
+                    m_lblNomActeur.Text = personne.NOM;
+                    m_lblDateNaissance.Text = personne.DATENAISSANCE != null ? personne.DATENAISSANCE.Value.ToString() : naString;
+                    m_lblLieuNaissance.Text = personne.LIEUNAISSANCE != null ? personne.LIEUNAISSANCE : naString;
+                    m_lblBiographie.Text = personne.BIOGRAPHIE.BIOGRAPHIE1 != null ? personne.BIOGRAPHIE.BIOGRAPHIE1 : naString;
                 }
             }
             else
@@ -124,11 +143,11 @@ namespace LOG660.UI
                 m_lblAnnee.Text = film.ANNEESORTIE.Value.ToString();
                 m_lblLangue.Text = film.LANGUEORIGINAL;
                 m_lblDuree.Text = film.DUREE.Value.ToString();
-                m_lblRealisateur.Text = getRealisateurById(Convert.ToInt32(film.IDREALISATEUR)).PERSONNE.NOM;
                 m_lblResume.Text = getResumeById(Convert.ToInt32(film.IDRESUME)).RESUME1;
 
                 displayMovieCountries(film.PAYSPRODUCTIONs);
-                //displayScreenWriters(m_facade.getEntity.SCENARISTEs);
+                displayMovieProducer(Convert.ToInt32(film.IDREALISATEUR));
+                displayScreenWriters(film.PERSONNEs);
                 displayActors(film.ACTEURFILMs);
             }
         }
@@ -167,9 +186,24 @@ namespace LOG660.UI
             }
         }
 
+        private void displayMovieProducer(int producerId)
+        {
+            m_dataProducer.Rows.Clear();
+
+            var producerName = getRealisateurById(producerId).PERSONNE.NOM;
+            m_dataProducer.Rows.Add(producerId, producerName);
+        }
+
         private void displayScreenWriters(ICollection<PERSONNE> collection)
         {
-            // TODO
+            m_dataScreenWriters.Rows.Clear();
+
+            var screenWriters = m_facade.getEntity.SCENARISTEs;
+            foreach (var screenWriterPersonne in collection)
+            {
+                var screenWriter = screenWriters.FirstOrDefault(a => a.IDPERSONNE == screenWriterPersonne.IDPERSONNE);
+                m_dataScreenWriters.Rows.Add(screenWriter.IDPERSONNE, screenWriter.PERSONNE.NOM);
+            }
         }
 
         private REALISATEUR getRealisateurById(int id)
@@ -242,16 +276,31 @@ namespace LOG660.UI
 
         private void m_btnLouerFilm_Click(object sender, EventArgs e)
         {
-            if (Helpers.isClient(currentUser.IDUSAGER))
+            if(m_dataFilms.CurrentCell != null)
             {
-
+                var idMovie = Convert.ToInt32(m_dataFilms[0, m_dataFilms.CurrentCell.RowIndex].Value);
+                if (Helpers.isClient(currentUser.IDUSAGER))
+                {
+                    string message = string.Empty;
+                    var success = WebFlixFacade.makeMovieRental(Convert.ToInt32(currentUser.IDUSAGER), idMovie, out message);
+                    MessageBox.Show(message, "Louer Film", MessageBoxButtons.OK, success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+                }
             }
+
+
         }
+        private bool m_clearingSelection = false;
 
         private void m_dataActors_SelectionChanged(object sender, EventArgs e)
         {
-            var id = m_dataActors[0, m_dataActors.CurrentCell.RowIndex].Value;
-            displayActorInfoById(Convert.ToInt32(id));
+            // Clear selection of other list
+            if(!m_clearingSelection)
+            {
+                ClearListsSelection(m_dataActors);
+
+                var id = m_dataActors[0, m_dataActors.CurrentCell.RowIndex].Value;
+                displayPersonneInfoById(Convert.ToInt32(id));
+            }
         }
 
         private void m_dataCountries_SelectionChanged(object sender, EventArgs e)
@@ -263,6 +312,29 @@ namespace LOG660.UI
         {
             var id = m_dataFilms[0, m_dataFilms.CurrentCell.RowIndex].Value;
             displayMovieInfoById(Convert.ToInt32(id));
+        }
+
+        private void m_dataProducer_SelectionChanged(object sender, EventArgs e)
+        {
+            if(!m_clearingSelection)
+            {
+                ClearListsSelection(m_dataProducer);
+
+                var id = m_dataProducer[0, m_dataProducer.CurrentCell.RowIndex].Value;
+                displayPersonneInfoById(Convert.ToInt32(id));
+            }
+        }
+
+        private void m_dataScreenWriters_SelectionChanged(object sender, EventArgs e)
+        {
+            // Clear selection of other list
+            if (!m_clearingSelection)
+            {
+                ClearListsSelection(m_dataScreenWriters);
+
+                var id = m_dataScreenWriters[0, m_dataScreenWriters.CurrentCell.RowIndex].Value;
+                displayPersonneInfoById(Convert.ToInt32(id));
+            }
         }
 
         private void SearchChanged(object sender, KeyEventArgs e)
@@ -295,8 +367,6 @@ namespace LOG660.UI
             ));
         }
 
-        #endregion
-
-      
+        #endregion      
     }
 }

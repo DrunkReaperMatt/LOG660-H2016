@@ -34,16 +34,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.m_dataFilms = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomFilms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.m_lblFilms = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.m_dataProducer = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
             this.m_dataActors = new System.Windows.Forms.DataGridView();
             this.idActeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.m_dataScreenWriters = new System.Windows.Forms.DataGridView();
             this.idScenariste = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomScenariste = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.m_dataCountries = new System.Windows.Forms.DataGridView();
@@ -54,8 +60,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.m_lblResume = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.m_lblRealisateur = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.m_lblDuree = new System.Windows.Forms.Label();
             this.m_titleDuree = new System.Windows.Forms.Label();
             this.m_lblLangue = new System.Windows.Forms.Label();
@@ -83,8 +87,8 @@
             this.idFilm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlAdvanced = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.m_topPanel = new System.Windows.Forms.Panel();
             this.m_middlePanel = new System.Windows.Forms.Panel();
+            this.m_topPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -94,14 +98,15 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.m_dataProducer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dataActors)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_dataScreenWriters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dataCountries)).BeginInit();
             this.m_bottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fILMBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
-            this.m_topPanel.SuspendLayout();
             this.m_middlePanel.SuspendLayout();
+            this.m_topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -191,16 +196,16 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
+            this.splitContainer2.Panel1.Controls.Add(this.m_dataProducer);
+            this.splitContainer2.Panel1.Controls.Add(this.label7);
             this.splitContainer2.Panel1.Controls.Add(this.m_dataActors);
-            this.splitContainer2.Panel1.Controls.Add(this.dataGridView2);
+            this.splitContainer2.Panel1.Controls.Add(this.m_dataScreenWriters);
             this.splitContainer2.Panel1.Controls.Add(this.m_dataCountries);
             this.splitContainer2.Panel1.Controls.Add(this.label9);
             this.splitContainer2.Panel1.Controls.Add(this.label8);
             this.splitContainer2.Panel1.Controls.Add(this.label2);
             this.splitContainer2.Panel1.Controls.Add(this.m_lblResume);
             this.splitContainer2.Panel1.Controls.Add(this.label6);
-            this.splitContainer2.Panel1.Controls.Add(this.m_lblRealisateur);
-            this.splitContainer2.Panel1.Controls.Add(this.label4);
             this.splitContainer2.Panel1.Controls.Add(this.m_lblDuree);
             this.splitContainer2.Panel1.Controls.Add(this.m_titleDuree);
             this.splitContainer2.Panel1.Controls.Add(this.m_lblLangue);
@@ -222,14 +227,60 @@
             this.splitContainer2.SplitterDistance = 269;
             this.splitContainer2.TabIndex = 0;
             // 
+            // m_dataProducer
+            // 
+            this.m_dataProducer.AllowUserToAddRows = false;
+            this.m_dataProducer.AllowUserToDeleteRows = false;
+            this.m_dataProducer.AllowUserToResizeColumns = false;
+            this.m_dataProducer.AllowUserToResizeRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataProducer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.m_dataProducer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.m_dataProducer.ColumnHeadersVisible = false;
+            this.m_dataProducer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.m_dataProducer.Location = new System.Drawing.Point(489, 77);
+            this.m_dataProducer.MultiSelect = false;
+            this.m_dataProducer.Name = "m_dataProducer";
+            this.m_dataProducer.ReadOnly = true;
+            this.m_dataProducer.RowHeadersVisible = false;
+            this.m_dataProducer.Size = new System.Drawing.Size(134, 25);
+            this.m_dataProducer.TabIndex = 28;
+            this.m_dataProducer.SelectionChanged += new System.EventHandler(this.m_dataProducer_SelectionChanged);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "idProducer";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "NomProducer";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(489, 54);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 13);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Réalisateur";
+            // 
             // m_dataActors
             // 
             this.m_dataActors.AllowUserToAddRows = false;
             this.m_dataActors.AllowUserToDeleteRows = false;
             this.m_dataActors.AllowUserToResizeColumns = false;
             this.m_dataActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.m_dataActors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -261,26 +312,29 @@
             this.Nom.ReadOnly = true;
             this.Nom.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // dataGridView2
+            // m_dataScreenWriters
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeColumns = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.m_dataScreenWriters.AllowUserToAddRows = false;
+            this.m_dataScreenWriters.AllowUserToDeleteRows = false;
+            this.m_dataScreenWriters.AllowUserToResizeColumns = false;
+            this.m_dataScreenWriters.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataScreenWriters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.m_dataScreenWriters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.ColumnHeadersVisible = false;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.m_dataScreenWriters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.m_dataScreenWriters.ColumnHeadersVisible = false;
+            this.m_dataScreenWriters.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idScenariste,
             this.NomScenariste});
-            this.dataGridView2.Location = new System.Drawing.Point(489, 77);
-            this.dataGridView2.MultiSelect = false;
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(134, 187);
-            this.dataGridView2.TabIndex = 25;
+            this.m_dataScreenWriters.Location = new System.Drawing.Point(489, 124);
+            this.m_dataScreenWriters.MultiSelect = false;
+            this.m_dataScreenWriters.Name = "m_dataScreenWriters";
+            this.m_dataScreenWriters.ReadOnly = true;
+            this.m_dataScreenWriters.RowHeadersVisible = false;
+            this.m_dataScreenWriters.Size = new System.Drawing.Size(134, 140);
+            this.m_dataScreenWriters.TabIndex = 25;
+            this.m_dataScreenWriters.SelectionChanged += new System.EventHandler(this.m_dataScreenWriters_SelectionChanged);
             // 
             // idScenariste
             // 
@@ -291,12 +345,11 @@
             // 
             // NomScenariste
             // 
-            this.NomScenariste.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NomScenariste.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.NomScenariste.HeaderText = "NomScenariste";
             this.NomScenariste.Name = "NomScenariste";
             this.NomScenariste.ReadOnly = true;
             this.NomScenariste.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NomScenariste.Width = 5;
             // 
             // m_dataCountries
             // 
@@ -304,8 +357,8 @@
             this.m_dataCountries.AllowUserToDeleteRows = false;
             this.m_dataCountries.AllowUserToResizeColumns = false;
             this.m_dataCountries.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataCountries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataCountries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.m_dataCountries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.m_dataCountries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -348,8 +401,11 @@
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(486, 55);
+            this.label8.Location = new System.Drawing.Point(489, 108);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 23;
@@ -367,7 +423,7 @@
             // m_lblResume
             // 
             this.m_lblResume.AutoSize = true;
-            this.m_lblResume.Location = new System.Drawing.Point(141, 147);
+            this.m_lblResume.Location = new System.Drawing.Point(141, 122);
             this.m_lblResume.MaximumSize = new System.Drawing.Size(200, 200);
             this.m_lblResume.Name = "m_lblResume";
             this.m_lblResume.Size = new System.Drawing.Size(197, 26);
@@ -377,29 +433,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(89, 147);
+            this.label6.Location = new System.Drawing.Point(89, 122);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 20;
             this.label6.Text = "Résumé:";
-            // 
-            // m_lblRealisateur
-            // 
-            this.m_lblRealisateur.AutoSize = true;
-            this.m_lblRealisateur.Location = new System.Drawing.Point(141, 125);
-            this.m_lblRealisateur.Name = "m_lblRealisateur";
-            this.m_lblRealisateur.Size = new System.Drawing.Size(61, 13);
-            this.m_lblRealisateur.TabIndex = 19;
-            this.m_lblRealisateur.Text = "[realisateur]";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(75, 125);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Réalisateur:";
             // 
             // m_lblDuree
             // 
@@ -613,8 +651,8 @@
             // Titre
             // 
             this.Titre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titre.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titre.DefaultCellStyle = dataGridViewCellStyle7;
             this.Titre.HeaderText = "Titre";
             this.Titre.Name = "Titre";
             this.Titre.ReadOnly = true;
@@ -651,6 +689,16 @@
             this.panel2.Size = new System.Drawing.Size(1165, 506);
             this.panel2.TabIndex = 11;
             // 
+            // m_middlePanel
+            // 
+            this.m_middlePanel.AutoScroll = true;
+            this.m_middlePanel.Controls.Add(this.splitContainer1);
+            this.m_middlePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_middlePanel.Location = new System.Drawing.Point(0, 44);
+            this.m_middlePanel.Name = "m_middlePanel";
+            this.m_middlePanel.Size = new System.Drawing.Size(1165, 434);
+            this.m_middlePanel.TabIndex = 14;
+            // 
             // m_topPanel
             // 
             this.m_topPanel.Controls.Add(this.m_lblNomClient);
@@ -664,16 +712,6 @@
             this.m_topPanel.Name = "m_topPanel";
             this.m_topPanel.Size = new System.Drawing.Size(1165, 44);
             this.m_topPanel.TabIndex = 11;
-            // 
-            // m_middlePanel
-            // 
-            this.m_middlePanel.AutoScroll = true;
-            this.m_middlePanel.Controls.Add(this.splitContainer1);
-            this.m_middlePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_middlePanel.Location = new System.Drawing.Point(0, 44);
-            this.m_middlePanel.Name = "m_middlePanel";
-            this.m_middlePanel.Size = new System.Drawing.Size(1165, 434);
-            this.m_middlePanel.TabIndex = 14;
             // 
             // FormFilmConsultations
             // 
@@ -700,16 +738,17 @@
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.m_dataProducer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dataActors)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_dataScreenWriters)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_dataCountries)).EndInit();
             this.m_bottomPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fILMBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.m_middlePanel.ResumeLayout(false);
             this.m_topPanel.ResumeLayout(false);
             this.m_topPanel.PerformLayout();
-            this.m_middlePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -726,8 +765,6 @@
         private System.Windows.Forms.Button m_btnOptionsRecherche;
         private System.Windows.Forms.Button m_btnEffacer;
         private System.Windows.Forms.Label m_lblFilms;
-        private System.Windows.Forms.Label m_lblRealisateur;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label m_lblDuree;
         private System.Windows.Forms.Label m_titleDuree;
         private System.Windows.Forms.Label m_lblLangue;
@@ -748,11 +785,9 @@
         private System.Windows.Forms.Label m_lblNomActeur;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView m_dataActors;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView m_dataScreenWriters;
         private System.Windows.Forms.DataGridView m_dataCountries;
         private System.Windows.Forms.BindingSource fILMBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idScenariste;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomScenariste;
         private System.Windows.Forms.DataGridViewTextBoxColumn idActeur;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn Titre;
@@ -767,5 +802,11 @@
         private System.Windows.Forms.Panel m_bottomPanel;
         private System.Windows.Forms.Panel m_topPanel;
         private System.Windows.Forms.Panel m_middlePanel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idScenariste;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomScenariste;
+        private System.Windows.Forms.DataGridView m_dataProducer;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

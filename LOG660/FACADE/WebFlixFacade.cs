@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Core.Objects;
 
 namespace LOG660.FACADE
 {
@@ -54,15 +57,31 @@ namespace LOG660.FACADE
         /// </summary>
         /// <param name="idUsager"></param>
         /// <param name="idFilm"></param>
-        /// <param name="idExemplaire"></param>
+        /// <param name="message"></param>
         /// <returns></returns>
-        public static String makeMovieRental(int idUsager, int idFilm, int idExemplaire)
+        public static bool makeMovieRental(int idUsager, int idFilm, out string message)
         {
             //get client object
             var currentClient = _entityWebFlixMgr.USAGERs.Where(c => c.IDUSAGER == idUsager).FirstOrDefault();
 
             //get the number of copies of the requested movie
             var exemplaires = _entityWebFlixMgr.EXEMPLAIREs.Count(e => e.IDFILM == idFilm);
+            
+            var film = _entityWebFlixMgr.FILMs.FirstOrDefault(f => f.IDFILM == idFilm);
+            if (film == null)
+            {
+                message = "Identifiant du film invalide.";
+                return false;
+            }
+
+            //Movies that have copies not used in a command already.
+            var availableExemplaire = film.EXEMPLAIREs.FirstOrDefault(e => !e.LIGNELOCATIONs.Any());
+            if (availableExemplaire == null)
+            {
+                message = "Aucune copie de ce film n'est disponible pour le moment";
+                return false;
+            }
+
 
             //get the user account type and the allowed number of locations for it
             var maxLocationAllowed = (from forfait in _entityWebFlixMgr.FORFAITs
@@ -71,20 +90,59 @@ namespace LOG660.FACADE
                                       where currentClient.IDUSAGER == cl.IDUSAGER
                                       select forfait.LOCATIONMAX).FirstOrDefault();
 
+            // TODO: C'est pas bon ça si il y a plus qu'un utilisateur
             var currentClientLocationAmount = (from e in _entityWebFlixMgr.EXEMPLAIREs
                                                join location in _entityWebFlixMgr.LIGNELOCATIONs
                                                on e.IDEXEMPLAIRE equals location.IDEXEMPLAIRE
                                                select location).Count();
 
+            // ça c'est bon, mais ça ne se met pas à jour...
+            //var currentClientLocationAmount = _entityWebFlixMgr.USAGERs.FirstOrDefault(u => u.IDUSAGER == idUsager).LOCATIONs.Count();
+
             //Verify if the user can make some rent this movie
-            if (currentClientLocationAmount < maxLocationAllowed && exemplaires != 0)
+            if (currentClientLocationAmount < maxLocationAllowed)
             {
-                //We allow the location to be made
-                _entityWebFlixMgr.PROC_RENTMOVIE(idUsager, idFilm, idExemplaire);
-                return "La location du film a bel et bien été accepté.";
+                if(exemplaires != 0)
+                {
+                    //We allow the location to be made
+                    _entityWebFlixMgr.PROC_RENTMOVIE2(idUsager, idFilm, availableExemplaire.IDEXEMPLAIRE);
+                    message = "La location du film a bel et bien été accepté.";
+                    //int num = _entityWebFlixMgr.SaveChanges();
+                    RefreshEntities();
+                    return true;
+                }
+                else
+                {
+
+                    message = "Aucune copie de ce film n'est disponible pour le moment";
+                    return false;
+                }
+
+            }
+            else
+            {
+                message = "Aucune location restante pour le forfait courant.";
+                return false;
             }
 
-            return "Aucune copie de ce film n'est disponible pour le moment";
+
+        }
+
+        private static void RefreshEntities()
+        {
+            var context = ((IObjectContextAdapter)_entityWebFlixMgr).ObjectContext;
+            if(context != null)
+            {
+                var objects = (from entry in context.ObjectStateManager.GetObjectStateEntries(
+                                                   EntityState.Added
+                                                  | EntityState.Deleted
+                                                  | EntityState.Modified
+                                                  | EntityState.Unchanged)
+                               where entry.EntityKey != null
+                               select entry.Entity);
+                
+                context.Refresh(RefreshMode.StoreWins, objects);
+            }
         }
 
         public static List<FILM> getFilmList(string query)

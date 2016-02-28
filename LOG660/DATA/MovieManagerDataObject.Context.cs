@@ -135,5 +135,22 @@ namespace LOG660.DATA
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_RENTMOVIE", iDUSERParameter, iDMOVIEParameter, iDEXEMPLAIREParameter);
         }
+    
+        public virtual int PROC_RENTMOVIE2(Nullable<decimal> iDUSER, Nullable<decimal> iDMOVIE, Nullable<decimal> iDMOVIEEXEMPLAIRE)
+        {
+            var iDUSERParameter = iDUSER.HasValue ?
+                new ObjectParameter("IDUSER", iDUSER) :
+                new ObjectParameter("IDUSER", typeof(decimal));
+    
+            var iDMOVIEParameter = iDMOVIE.HasValue ?
+                new ObjectParameter("IDMOVIE", iDMOVIE) :
+                new ObjectParameter("IDMOVIE", typeof(decimal));
+    
+            var iDMOVIEEXEMPLAIREParameter = iDMOVIEEXEMPLAIRE.HasValue ?
+                new ObjectParameter("IDMOVIEEXEMPLAIRE", iDMOVIEEXEMPLAIRE) :
+                new ObjectParameter("IDMOVIEEXEMPLAIRE", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_RENTMOVIE2", iDUSERParameter, iDMOVIEParameter, iDMOVIEEXEMPLAIREParameter);
+        }
     }
 }

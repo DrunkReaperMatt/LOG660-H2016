@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MovieManagerDataObjectModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MovieManagerDataObjectModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACTEUR">
           <Key>
             <PropertyRef Name="IDPERSONNE" />
@@ -476,10 +476,10 @@
           <Parameter Name="DATENAISSANCE" Type="date" Mode="In" />
           <Parameter Name="MOTPASSE" Type="varchar2" Mode="In" />
         </Function>
-        <Function Name="PROC_RENTMOVIE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EQUIPE7">
+        <Function Name="PROC_RENTMOVIE2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EQUIPE7">
           <Parameter Name="IDUSER" Type="number" Mode="In" />
           <Parameter Name="IDMOVIE" Type="number" Mode="In" />
-          <Parameter Name="IDEXEMPLAIRE" Type="number" Mode="In" />
+          <Parameter Name="IDMOVIEEXEMPLAIRE" Type="number" Mode="In" />
         </Function>
         <EntityContainer Name="MovieManagerDataObjectModelStoreContainer">
           <EntitySet Name="ACTEUR" EntityType="Self.ACTEUR" Schema="EQUIPE7" store:Type="Tables" />
@@ -1088,6 +1088,11 @@
             <Parameter Name="IDMOVIE" Mode="In" Type="Decimal" />
             <Parameter Name="IDEXEMPLAIRE" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="PROC_RENTMOVIE2">
+            <Parameter Name="IDUSER" Mode="In" Type="Decimal" />
+            <Parameter Name="IDMOVIE" Mode="In" Type="Decimal" />
+            <Parameter Name="IDMOVIEEXEMPLAIRE" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1299,7 +1304,7 @@
             </EndProperty>
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="PROC_ADDCLIENT" FunctionName="MovieManagerDataObjectModel.Store.PROC_ADDCLIENT" />
-          <FunctionImportMapping FunctionImportName="PROC_RENTMOVIE" FunctionName="MovieManagerDataObjectModel.Store.PROC_RENTMOVIE" />
+          <FunctionImportMapping FunctionImportName="PROC_RENTMOVIE2" FunctionName="MovieManagerDataObjectModel.Store.PROC_RENTMOVIE2" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
