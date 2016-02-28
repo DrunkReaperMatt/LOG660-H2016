@@ -308,6 +308,20 @@ namespace LOG660.UI
             m_dataCountries.ClearSelection();
         }
 
+        private void m_dataFilms_Paint(object sender, PaintEventArgs e)
+        {
+            DataGridView dataGrid = (DataGridView)sender;
+
+            if (dataGrid.Rows.Count == 0)
+            {
+                using (Graphics graphics = e.Graphics)
+                {
+                    graphics.FillRectangle(Brushes.WhiteSmoke, new Rectangle(new Point(3, 3), new Size(dataGrid.Width - 6, dataGrid.Height - 6)));
+                    graphics.DrawString("Aucun film trouvé", new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new PointF(((dataGrid.Width / 2) - 65), ((dataGrid.Height / 2)) - 20));
+                }
+            }
+        }
+
         private void m_dataFilms_SelectionChanged(object sender, EventArgs e)
         {
             var id = m_dataFilms[0, m_dataFilms.CurrentCell.RowIndex].Value;
