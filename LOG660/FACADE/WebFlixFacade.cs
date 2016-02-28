@@ -164,21 +164,20 @@ namespace LOG660.FACADE
         {
             List<FILM> x = new List<FILM>();
             String textToSearch = "";
-            var advancedSearch = x;
-            var basicSearch = x;
+            var advancedSearch = (
+                from film in _entityWebFlixMgr.FILMs
+                select film
+                ).ToList();
+            var basicSearch = (
+                from film in _entityWebFlixMgr.FILMs
+                select film
+                ).ToList();
 
             if(!query.Equals(""))
             {
                 basicSearch = (
                 from film in _entityWebFlixMgr.FILMs
                 where film.TITRE.ToLower().Contains(query.ToLower())
-                select film
-                ).ToList();
-            }
-            else
-            {
-                basicSearch = (
-                from film in _entityWebFlixMgr.FILMs
                 select film
                 ).ToList();
             }
@@ -228,7 +227,23 @@ namespace LOG660.FACADE
                         select film
                         ).ToList();
                     }
-                    else if(UCs[i].getValue() == UserControlFolder.AdvancedSearchUC.CHAINE_IDENTIFIER)
+                    else if (UCs[i].getValue() == UserControlFolder.AdvancedSearchUC.ANNEE_IDENTIFIER)
+                    {
+                        int pos1 = textToSearch.IndexOf("[");
+                        int pos2 = textToSearch.IndexOf(",");
+                        int pos3 = textToSearch.IndexOf("]");
+                        if (pos1 == 0 && pos3 == 10)
+                        {
+                            int start = Convert.ToInt32(textToSearch.Substring(1, 4));
+                            int end = Convert.ToInt32(textToSearch.Substring(pos2 + 1, 4)); 
+                            advancedSearch = (
+                            from film in _entityWebFlixMgr.FILMs
+                            where film.ANNEESORTIE >= start && film.ANNEESORTIE <= end
+                            select film
+                            ).ToList();
+                        }
+                    }
+                    else if(UCs[i].getValue() == UserControlFolder.AdvancedSearchUC.TITRE_IDENTIFIER)
                     {
                         textToSearch = UCs[i].getText().ToLower();
                         advancedSearch = (

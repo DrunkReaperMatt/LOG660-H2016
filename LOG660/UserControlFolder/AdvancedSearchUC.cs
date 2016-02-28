@@ -14,7 +14,7 @@ namespace LOG660.UserControlFolder
     {
         public const int ADD_EVENT_IDENTIFIER = 1;
         public const int REMOVE_EVENT_IDENTIFIER = 2;
-        public const int CHAINE_IDENTIFIER = 0;
+        public const int TITRE_IDENTIFIER = 0;
         public const int ANNEE_IDENTIFIER = 1;
         public const int PAYS_IDENTIFIER = 2;
         public const int LANGUE_IDENTIFIER = 3;
@@ -30,7 +30,7 @@ namespace LOG660.UserControlFolder
         {
             InitializeComponent();
             Dictionary<string, int>  item = new Dictionary<string, int>();
-            item.Add("Chaine", CHAINE_IDENTIFIER);
+            item.Add("Titre", TITRE_IDENTIFIER);
             item.Add("Annee", ANNEE_IDENTIFIER);
             item.Add("Pays", PAYS_IDENTIFIER);
             item.Add("Langue", LANGUE_IDENTIFIER);
@@ -78,6 +78,10 @@ namespace LOG660.UserControlFolder
             if (fieldEventHandler != null)
             {
                 fieldEventHandler(this, REMOVE_EVENT_IDENTIFIER);
+            }
+            if (searchChangedEventHandler != null)
+            {
+                searchChangedEventHandler(this, null);
             }
         }
 
