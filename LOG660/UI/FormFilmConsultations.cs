@@ -252,6 +252,7 @@ namespace LOG660.UI
         {
             var films = m_facade.getEntity.FILMs.ToList();
             DisplayMovies(films);
+            RefreshBiographySize();
         }
 
         private void m_btnEffacer_Click(object sender, EventArgs e)
@@ -382,5 +383,15 @@ namespace LOG660.UI
         }
 
         #endregion      
+
+        private void m_panelBiographie_SizeChanged(object sender, EventArgs e)
+        {
+            RefreshBiographySize();
+        }
+
+        private void RefreshBiographySize()
+        {
+            m_lblBiographie.MaximumSize = new Size(m_panelBiographie.Width - m_lblBiographie.Left, 10000);
+        }
     }
 }

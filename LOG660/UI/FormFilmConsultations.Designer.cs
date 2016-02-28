@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.m_dataFilms = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +89,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.m_middlePanel = new System.Windows.Forms.Panel();
             this.m_topPanel = new System.Windows.Forms.Panel();
+            this.m_panelBiographie = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -107,6 +108,7 @@
             this.panel2.SuspendLayout();
             this.m_middlePanel.SuspendLayout();
             this.m_topPanel.SuspendLayout();
+            this.m_panelBiographie.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -139,8 +141,8 @@
             this.m_dataFilms.AllowUserToDeleteRows = false;
             this.m_dataFilms.AllowUserToResizeColumns = false;
             this.m_dataFilms.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.m_dataFilms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -168,8 +170,8 @@
             // NomFilms
             // 
             this.NomFilms.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NomFilms.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomFilms.DefaultCellStyle = dataGridViewCellStyle16;
             this.NomFilms.HeaderText = "NomFilms";
             this.NomFilms.Name = "NomFilms";
             this.NomFilms.ReadOnly = true;
@@ -217,7 +219,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.m_lblBiographie);
+            this.splitContainer2.Panel2.Controls.Add(this.m_panelBiographie);
             this.splitContainer2.Panel2.Controls.Add(this.label16);
             this.splitContainer2.Panel2.Controls.Add(this.m_lblLieuNaissance);
             this.splitContainer2.Panel2.Controls.Add(this.label14);
@@ -234,8 +236,8 @@
             this.m_dataProducer.AllowUserToDeleteRows = false;
             this.m_dataProducer.AllowUserToResizeColumns = false;
             this.m_dataProducer.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataProducer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataProducer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.m_dataProducer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.m_dataProducer.ColumnHeadersVisible = false;
             this.m_dataProducer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -280,8 +282,8 @@
             this.m_dataActors.AllowUserToDeleteRows = false;
             this.m_dataActors.AllowUserToResizeColumns = false;
             this.m_dataActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
             this.m_dataActors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -319,8 +321,8 @@
             this.m_dataScreenWriters.AllowUserToDeleteRows = false;
             this.m_dataScreenWriters.AllowUserToResizeColumns = false;
             this.m_dataScreenWriters.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataScreenWriters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataScreenWriters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.m_dataScreenWriters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.m_dataScreenWriters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -358,8 +360,8 @@
             this.m_dataCountries.AllowUserToDeleteRows = false;
             this.m_dataCountries.AllowUserToResizeColumns = false;
             this.m_dataCountries.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_dataCountries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_dataCountries.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
             this.m_dataCountries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.m_dataCountries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -508,7 +510,7 @@
             // m_lblBiographie
             // 
             this.m_lblBiographie.AutoSize = true;
-            this.m_lblBiographie.Location = new System.Drawing.Point(468, 50);
+            this.m_lblBiographie.Location = new System.Drawing.Point(3, 7);
             this.m_lblBiographie.Name = "m_lblBiographie";
             this.m_lblBiographie.Size = new System.Drawing.Size(62, 13);
             this.m_lblBiographie.TabIndex = 30;
@@ -652,8 +654,8 @@
             // Titre
             // 
             this.Titre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titre.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titre.DefaultCellStyle = dataGridViewCellStyle21;
             this.Titre.HeaderText = "Titre";
             this.Titre.Name = "Titre";
             this.Titre.ReadOnly = true;
@@ -714,6 +716,19 @@
             this.m_topPanel.Size = new System.Drawing.Size(1165, 44);
             this.m_topPanel.TabIndex = 11;
             // 
+            // m_panelBiographie
+            // 
+            this.m_panelBiographie.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_panelBiographie.AutoScroll = true;
+            this.m_panelBiographie.Controls.Add(this.m_lblBiographie);
+            this.m_panelBiographie.Location = new System.Drawing.Point(468, 43);
+            this.m_panelBiographie.Name = "m_panelBiographie";
+            this.m_panelBiographie.Size = new System.Drawing.Size(414, 111);
+            this.m_panelBiographie.TabIndex = 31;
+            this.m_panelBiographie.SizeChanged += new System.EventHandler(this.m_panelBiographie_SizeChanged);
+            // 
             // FormFilmConsultations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -750,6 +765,8 @@
             this.m_middlePanel.ResumeLayout(false);
             this.m_topPanel.ResumeLayout(false);
             this.m_topPanel.PerformLayout();
+            this.m_panelBiographie.ResumeLayout(false);
+            this.m_panelBiographie.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -809,5 +826,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Panel m_panelBiographie;
     }
 }
