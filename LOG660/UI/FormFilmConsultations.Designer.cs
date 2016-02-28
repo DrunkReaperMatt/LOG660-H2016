@@ -157,6 +157,7 @@
             this.m_dataFilms.Size = new System.Drawing.Size(269, 397);
             this.m_dataFilms.TabIndex = 13;
             this.m_dataFilms.SelectionChanged += new System.EventHandler(this.m_dataFilms_SelectionChanged);
+            this.m_dataFilms.Paint += new System.Windows.Forms.PaintEventHandler(this.m_dataFilms_Paint);
             // 
             // id
             // 
