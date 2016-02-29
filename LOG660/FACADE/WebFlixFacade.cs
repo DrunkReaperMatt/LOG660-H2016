@@ -102,10 +102,10 @@ namespace LOG660.FACADE
                                       select forfait.LOCATIONMAX).FirstOrDefault();
 
             // Get All locations from the current user
-            var currentClientLocationAmount = _entityWebFlixMgr.USAGERs.Include(l => l.LOCATIONs).FirstOrDefault(u => u.IDUSAGER == idUsager);
+            var currentClientLocationAmount = _entityWebFlixMgr.USAGERs.Include(l => l.LOCATIONs).FirstOrDefault(u => u.IDUSAGER == idUsager).LOCATIONs.Count();
 
             //Verify if the user can make rent this movie on his current amount of location
-            if (currentClientLocationAmount.LOCATIONs.Count() < maxLocationAllowed)
+            if (currentClientLocationAmount < maxLocationAllowed)
             {
                 if(exemplaires != 0)
                 {
