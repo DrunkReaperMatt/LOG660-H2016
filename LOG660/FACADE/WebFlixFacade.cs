@@ -67,6 +67,7 @@ namespace LOG660.FACADE
             //get the number of copies of the requested movie
             var exemplaires = _entityWebFlixMgr.EXEMPLAIREs.Count(e => e.IDFILM == idFilm);
             
+            //get the current movie object
             var film = _entityWebFlixMgr.FILMs.FirstOrDefault(f => f.IDFILM == idFilm);
             if (film == null)
             {
@@ -82,6 +83,16 @@ namespace LOG660.FACADE
                 return false;
             }
 
+            //Verify if the choosen copy of this movie has already been took
+            var isCoypAlreadyBeTaken= _entityWebFlixMgr.LIGNELOCATIONs.Include(l=>l.LOCATIONs).
+                                        Any(lg => lg.IDEXEMPLAIRE == availableExemplaire.IDEXEMPLAIRE);
+
+            if (isCoypAlreadyBeTaken)
+            {
+                message = "Vous ne pouvez pas louer cette copie  de ce film.\nIl est déjà emprunté";
+                return false;
+            }
+
 
             //get the user account type and the allowed number of locations for it
             var maxLocationAllowed = (from forfait in _entityWebFlixMgr.FORFAITs
@@ -90,38 +101,31 @@ namespace LOG660.FACADE
                                       where currentClient.IDUSAGER == cl.IDUSAGER
                                       select forfait.LOCATIONMAX).FirstOrDefault();
 
-            // TODO: C'est pas bon ça si il y a plus qu'un utilisateur
-            var currentClientLocationAmount = (from e in _entityWebFlixMgr.EXEMPLAIREs
-                                               join location in _entityWebFlixMgr.LIGNELOCATIONs
-                                               on e.IDEXEMPLAIRE equals location.IDEXEMPLAIRE
-                                               select location).Count();
+            // Get All locations from the current user
+            var currentClientLocationAmount = _entityWebFlixMgr.USAGERs.Include(l => l.LOCATIONs).FirstOrDefault(u => u.IDUSAGER == idUsager);
 
-            // ça c'est bon, mais ça ne se met pas à jour...
-            //var currentClientLocationAmount = _entityWebFlixMgr.USAGERs.FirstOrDefault(u => u.IDUSAGER == idUsager).LOCATIONs.Count();
-
-            //Verify if the user can make some rent this movie
-            if (currentClientLocationAmount < maxLocationAllowed)
+            //Verify if the user can make rent this movie on his current amount of location
+            if (currentClientLocationAmount.LOCATIONs.Count() < maxLocationAllowed)
             {
                 if(exemplaires != 0)
                 {
                     //We allow the location to be made
                     _entityWebFlixMgr.PROC_RENTMOVIE2(idUsager, idFilm, availableExemplaire.IDEXEMPLAIRE);
+
                     message = "La location du film a bel et bien été accepté.";
-                    //int num = _entityWebFlixMgr.SaveChanges();
+
                     RefreshEntities();
                     return true;
                 }
                 else
                 {
-
                     message = "Aucune copie de ce film n'est disponible pour le moment";
                     return false;
                 }
-
             }
             else
             {
-                message = "Aucune location restante pour le forfait courant.";
+                message = "Vous ne pouvez faire la location d'un film.\nAucune location restante pour le forfait courant.";
                 return false;
             }
 
