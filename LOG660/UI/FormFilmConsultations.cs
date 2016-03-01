@@ -280,11 +280,23 @@ namespace LOG660.UI
             if(m_dataFilms.CurrentCell != null)
             {
                 var idMovie = Convert.ToInt32(m_dataFilms[0, m_dataFilms.CurrentCell.RowIndex].Value);
+
                 if (Helpers.isClient(currentUser.IDUSAGER))
                 {
-                    string message = string.Empty;
-                    var success = WebFlixFacade.makeMovieRental(Convert.ToInt32(currentUser.IDUSAGER), idMovie, out message);
-                    MessageBox.Show(message, "Louer Film", MessageBoxButtons.OK, success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+                    var movie = m_facade.getEntity.FILMs.First(f=>f.IDFILM == idMovie);
+                    var movieInfos = "\n\nTitre: \t" + movie.TITRE +"\n" +
+                                     "Date: \t" + DateTime.Now.ToShortDateString();
+
+                    DialogResult movieRentConfirmMsg = MessageBox.Show("Veuillez confirmer votre choix pour la location suivante:" + movieInfos,  "Confirmation de la location", 
+                                                       MessageBoxButtons.YesNo, MessageBoxIcon.Question, 
+                                                       MessageBoxDefaultButton.Button1);
+
+                    if (movieRentConfirmMsg == DialogResult.Yes)
+                    {
+                        string message = string.Empty;
+                        var success = WebFlixFacade.makeMovieRental(Convert.ToInt32(currentUser.IDUSAGER), idMovie, out message);
+                        MessageBox.Show(message, "Louer Film", MessageBoxButtons.OK, success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+                    }
                 }
             }
 
