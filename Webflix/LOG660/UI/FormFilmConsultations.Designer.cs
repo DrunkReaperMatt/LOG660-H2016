@@ -118,7 +118,7 @@
             this.splitContainer1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -153,7 +153,7 @@
             this.id,
             this.NomFilms});
             this.m_dataFilms.Location = new System.Drawing.Point(4, 37);
-            this.m_dataFilms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_dataFilms.Margin = new System.Windows.Forms.Padding(4);
             this.m_dataFilms.MultiSelect = false;
             this.m_dataFilms.Name = "m_dataFilms";
             this.m_dataFilms.RowHeadersVisible = false;
@@ -196,7 +196,7 @@
             this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -249,7 +249,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
             this.m_dataProducer.Location = new System.Drawing.Point(652, 95);
-            this.m_dataProducer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_dataProducer.Margin = new System.Windows.Forms.Padding(4);
             this.m_dataProducer.MultiSelect = false;
             this.m_dataProducer.Name = "m_dataProducer";
             this.m_dataProducer.ReadOnly = true;
@@ -300,7 +300,7 @@
             this.idActeur,
             this.Nom});
             this.m_dataActors.Location = new System.Drawing.Point(839, 95);
-            this.m_dataActors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_dataActors.Margin = new System.Windows.Forms.Padding(4);
             this.m_dataActors.MultiSelect = false;
             this.m_dataActors.Name = "m_dataActors";
             this.m_dataActors.RowHeadersVisible = false;
@@ -339,7 +339,7 @@
             this.idScenariste,
             this.NomScenariste});
             this.m_dataScreenWriters.Location = new System.Drawing.Point(652, 153);
-            this.m_dataScreenWriters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_dataScreenWriters.Margin = new System.Windows.Forms.Padding(4);
             this.m_dataScreenWriters.MultiSelect = false;
             this.m_dataScreenWriters.Name = "m_dataScreenWriters";
             this.m_dataScreenWriters.ReadOnly = true;
@@ -380,7 +380,7 @@
             this.NomPays});
             this.m_dataCountries.Enabled = false;
             this.m_dataCountries.Location = new System.Drawing.Point(460, 95);
-            this.m_dataCountries.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_dataCountries.Margin = new System.Windows.Forms.Padding(4);
             this.m_dataCountries.MultiSelect = false;
             this.m_dataCountries.Name = "m_dataCountries";
             this.m_dataCountries.ReadOnly = true;
@@ -537,9 +537,9 @@
             this.m_panelBiographie.AutoScroll = true;
             this.m_panelBiographie.Controls.Add(this.m_lblBiographie);
             this.m_panelBiographie.Location = new System.Drawing.Point(624, 53);
-            this.m_panelBiographie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_panelBiographie.Margin = new System.Windows.Forms.Padding(4);
             this.m_panelBiographie.Name = "m_panelBiographie";
-            this.m_panelBiographie.Size = new System.Drawing.Size(553, 138);
+            this.m_panelBiographie.Size = new System.Drawing.Size(553, 137);
             this.m_panelBiographie.TabIndex = 31;
             this.m_panelBiographie.SizeChanged += new System.EventHandler(this.m_panelBiographie_SizeChanged);
             // 
@@ -620,7 +620,7 @@
             this.m_bottomPanel.Controls.Add(this.m_btnLouerFilm);
             this.m_bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.m_bottomPanel.Location = new System.Drawing.Point(0, 589);
-            this.m_bottomPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_bottomPanel.Margin = new System.Windows.Forms.Padding(4);
             this.m_bottomPanel.Name = "m_bottomPanel";
             this.m_bottomPanel.Size = new System.Drawing.Size(1553, 34);
             this.m_bottomPanel.TabIndex = 12;
@@ -629,7 +629,7 @@
             // 
             this.m_btnLouerFilm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.m_btnLouerFilm.Location = new System.Drawing.Point(1436, 5);
-            this.m_btnLouerFilm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_btnLouerFilm.Margin = new System.Windows.Forms.Padding(4);
             this.m_btnLouerFilm.Name = "m_btnLouerFilm";
             this.m_btnLouerFilm.Size = new System.Drawing.Size(119, 28);
             this.m_btnLouerFilm.TabIndex = 2;
@@ -641,7 +641,7 @@
             // 
             this.m_btnDeconnexion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.m_btnDeconnexion.Location = new System.Drawing.Point(1435, 17);
-            this.m_btnDeconnexion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_btnDeconnexion.Margin = new System.Windows.Forms.Padding(4);
             this.m_btnDeconnexion.Name = "m_btnDeconnexion";
             this.m_btnDeconnexion.Size = new System.Drawing.Size(119, 28);
             this.m_btnDeconnexion.TabIndex = 1;
@@ -674,7 +674,7 @@
             // m_txtRecherche
             // 
             this.m_txtRecherche.Location = new System.Drawing.Point(101, 20);
-            this.m_txtRecherche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_txtRecherche.Margin = new System.Windows.Forms.Padding(4);
             this.m_txtRecherche.Name = "m_txtRecherche";
             this.m_txtRecherche.Size = new System.Drawing.Size(184, 22);
             this.m_txtRecherche.TabIndex = 5;
@@ -683,7 +683,7 @@
             // m_btnOptionsRecherche
             // 
             this.m_btnOptionsRecherche.Location = new System.Drawing.Point(368, 17);
-            this.m_btnOptionsRecherche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_btnOptionsRecherche.Margin = new System.Windows.Forms.Padding(4);
             this.m_btnOptionsRecherche.Name = "m_btnOptionsRecherche";
             this.m_btnOptionsRecherche.Size = new System.Drawing.Size(159, 28);
             this.m_btnOptionsRecherche.TabIndex = 7;
@@ -694,7 +694,7 @@
             // m_btnEffacer
             // 
             this.m_btnEffacer.Location = new System.Drawing.Point(295, 17);
-            this.m_btnEffacer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_btnEffacer.Margin = new System.Windows.Forms.Padding(4);
             this.m_btnEffacer.Name = "m_btnEffacer";
             this.m_btnEffacer.Size = new System.Drawing.Size(65, 28);
             this.m_btnEffacer.TabIndex = 9;
@@ -726,7 +726,7 @@
             this.pnlAdvanced.BackColor = System.Drawing.SystemColors.Control;
             this.pnlAdvanced.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAdvanced.Location = new System.Drawing.Point(0, 54);
-            this.pnlAdvanced.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAdvanced.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAdvanced.Name = "pnlAdvanced";
             this.pnlAdvanced.Size = new System.Drawing.Size(1553, 0);
             this.pnlAdvanced.TabIndex = 10;
@@ -740,7 +740,7 @@
             this.panel2.Controls.Add(this.m_topPanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(7, 6);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1553, 623);
             this.panel2.TabIndex = 11;
@@ -751,7 +751,7 @@
             this.m_middlePanel.Controls.Add(this.splitContainer1);
             this.m_middlePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_middlePanel.Location = new System.Drawing.Point(0, 54);
-            this.m_middlePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_middlePanel.Margin = new System.Windows.Forms.Padding(4);
             this.m_middlePanel.Name = "m_middlePanel";
             this.m_middlePanel.Size = new System.Drawing.Size(1553, 535);
             this.m_middlePanel.TabIndex = 14;
@@ -766,7 +766,7 @@
             this.m_topPanel.Controls.Add(this.m_btnDeconnexion);
             this.m_topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.m_topPanel.Location = new System.Drawing.Point(0, 0);
-            this.m_topPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_topPanel.Margin = new System.Windows.Forms.Padding(4);
             this.m_topPanel.Name = "m_topPanel";
             this.m_topPanel.Size = new System.Drawing.Size(1553, 54);
             this.m_topPanel.TabIndex = 11;
@@ -779,7 +779,7 @@
             this.ClientSize = new System.Drawing.Size(1567, 635);
             this.Controls.Add(this.panel2);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1461, 605);
             this.Name = "FormFilmConsultations";
             this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
