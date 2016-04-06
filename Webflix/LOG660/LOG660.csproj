@@ -81,10 +81,22 @@
     <Compile Include="DATA\CLIENT.cs">
       <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\DIMENSIONCLIENT.cs">
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\DIMENSIONFILM.cs">
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\DIMENSIONTEMP.cs">
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
+    </Compile>
     <Compile Include="DATA\EMPLOYE.cs">
       <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\EXEMPLAIRE.cs">
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\FAITLOCATIONFILMCLIENTINSTANT.cs">
       <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\FILM.cs">

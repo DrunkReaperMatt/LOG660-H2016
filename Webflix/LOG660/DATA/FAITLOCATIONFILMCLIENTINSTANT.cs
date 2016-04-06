@@ -15,16 +15,22 @@ namespace LOG660.DATA
 using System;
     using System.Collections.Generic;
     
-public partial class EMPLOYE
+public partial class FAITLOCATIONFILMCLIENTINSTANT
 {
 
-    public decimal IDUSAGER { get; set; }
+    public decimal IDCLIENT { get; set; }
 
-    public int MATRICULE { get; set; }
+    public decimal IDTEMPS { get; set; }
+
+    public decimal IDFILM { get; set; }
 
 
 
-    public virtual USAGER USAGER { get; set; }
+    public virtual DIMENSIONCLIENT DIMENSIONCLIENT { get; set; }
+
+    public virtual DIMENSIONFILM DIMENSIONFILM { get; set; }
+
+    public virtual DIMENSIONTEMP DIMENSIONTEMP { get; set; }
 
 }
 

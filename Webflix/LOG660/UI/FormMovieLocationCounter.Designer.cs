@@ -85,6 +85,7 @@
             this.lBoxAgeRange.Name = "lBoxAgeRange";
             this.lBoxAgeRange.Size = new System.Drawing.Size(120, 84);
             this.lBoxAgeRange.TabIndex = 8;
+            this.lBoxAgeRange.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // lBoxProvince
             // 
@@ -93,7 +94,8 @@
             this.lBoxProvince.Location = new System.Drawing.Point(280, 60);
             this.lBoxProvince.Name = "lBoxProvince";
             this.lBoxProvince.Size = new System.Drawing.Size(120, 84);
-            this.lBoxProvince.TabIndex = 9;
+            this.lBoxProvince.TabIndex = 15;
+            this.lBoxProvince.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // lBoxDay
             // 
@@ -103,6 +105,7 @@
             this.lBoxDay.Name = "lBoxDay";
             this.lBoxDay.Size = new System.Drawing.Size(120, 84);
             this.lBoxDay.TabIndex = 10;
+            this.lBoxDay.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // lBoxMonth
             // 
@@ -112,6 +115,7 @@
             this.lBoxMonth.Name = "lBoxMonth";
             this.lBoxMonth.Size = new System.Drawing.Size(120, 84);
             this.lBoxMonth.TabIndex = 11;
+            this.lBoxMonth.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // label5
             // 

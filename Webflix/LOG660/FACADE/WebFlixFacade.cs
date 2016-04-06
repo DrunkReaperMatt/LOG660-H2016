@@ -66,7 +66,7 @@ namespace LOG660.FACADE
 
             //get the number of copies of the requested movie
             var exemplaires = _entityWebFlixMgr.EXEMPLAIREs.Count(e => e.IDFILM == idFilm);
-            
+
             //get the current movie object
             var film = _entityWebFlixMgr.FILMs.FirstOrDefault(f => f.IDFILM == idFilm);
             if (film == null)
@@ -84,7 +84,7 @@ namespace LOG660.FACADE
             }
 
             //Verify if the choosen copy of this movie has already been took
-            var isCoypAlreadyBeTaken= _entityWebFlixMgr.LIGNELOCATIONs.Include(l=>l.LOCATIONs).
+            var isCoypAlreadyBeTaken = _entityWebFlixMgr.LIGNELOCATIONs.Include(l => l.LOCATIONs).
                                         Any(lg => lg.IDEXEMPLAIRE == availableExemplaire.IDEXEMPLAIRE);
 
             if (isCoypAlreadyBeTaken)
@@ -107,7 +107,7 @@ namespace LOG660.FACADE
             //Verify if the user can make rent this movie on his current amount of location
             if (currentClientLocationAmount < maxLocationAllowed)
             {
-                if(exemplaires != 0)
+                if (exemplaires != 0)
                 {
                     //We allow the location to be made
                     _entityWebFlixMgr.PROC_RENTMOVIE2(idUsager, idFilm, availableExemplaire.IDEXEMPLAIRE);
@@ -135,7 +135,7 @@ namespace LOG660.FACADE
         private static void RefreshEntities()
         {
             var context = ((IObjectContextAdapter)_entityWebFlixMgr).ObjectContext;
-            if(context != null)
+            if (context != null)
             {
                 var objects = (from entry in context.ObjectStateManager.GetObjectStateEntries(
                                                    EntityState.Added
@@ -144,7 +144,7 @@ namespace LOG660.FACADE
                                                   | EntityState.Unchanged)
                                where entry.EntityKey != null
                                select entry.Entity);
-                
+
                 context.Refresh(RefreshMode.StoreWins, objects);
             }
         }
@@ -155,7 +155,7 @@ namespace LOG660.FACADE
 
             var filmRechercheQuery = (
                 from film in _entityWebFlixMgr.FILMs.ToList()
-                where film.TITRE.ToLower().Contains( query.ToLower() )
+                where film.TITRE.ToLower().Contains(query.ToLower())
                 select film
                 ).ToList();
 
@@ -177,7 +177,7 @@ namespace LOG660.FACADE
                 select film
                 ).ToList();
 
-            if(!query.Equals(""))
+            if (!query.Equals(""))
             {
                 basicSearch = (
                 from film in _entityWebFlixMgr.FILMs
@@ -185,7 +185,7 @@ namespace LOG660.FACADE
                 select film
                 ).ToList();
             }
-            for (int i = 0; i < UCs.Count; i++ )
+            for (int i = 0; i < UCs.Count; i++)
             {
                 textToSearch = UCs[i].getText().Trim().ToLower();
                 if (!(textToSearch.Equals("")))
@@ -239,7 +239,7 @@ namespace LOG660.FACADE
                         if (pos1 == 0 && pos3 == 10)
                         {
                             int start = Convert.ToInt32(textToSearch.Substring(1, 4));
-                            int end = Convert.ToInt32(textToSearch.Substring(pos2 + 1, 4)); 
+                            int end = Convert.ToInt32(textToSearch.Substring(pos2 + 1, 4));
                             advancedSearch = (
                             from film in _entityWebFlixMgr.FILMs
                             where film.ANNEESORTIE >= start && film.ANNEESORTIE <= end
@@ -247,7 +247,7 @@ namespace LOG660.FACADE
                             ).ToList();
                         }
                     }
-                    else if(UCs[i].getValue() == UserControlFolder.AdvancedSearchUC.TITRE_IDENTIFIER)
+                    else if (UCs[i].getValue() == UserControlFolder.AdvancedSearchUC.TITRE_IDENTIFIER)
                     {
                         textToSearch = UCs[i].getText().ToLower();
                         advancedSearch = (
@@ -263,6 +263,11 @@ namespace LOG660.FACADE
             return basicSearch.ToList();
         }
 
+
+        public int getMovieLocationCountFromCirteria(string ageRange, int? day, int? month, string province) 
+        {
+            return 0;
+        }
     }
 
 }

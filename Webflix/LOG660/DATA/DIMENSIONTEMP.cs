@@ -15,27 +15,35 @@ namespace LOG660.DATA
 using System;
     using System.Collections.Generic;
     
-public partial class GENRE
+public partial class DIMENSIONTEMP
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public GENRE()
+    public DIMENSIONTEMP()
     {
 
-        this.FILMs = new HashSet<FILM>();
+        this.FAITLOCATIONFILMCLIENTINSTANTs = new HashSet<FAITLOCATIONFILMCLIENTINSTANT>();
 
     }
 
 
-    public decimal IDGENRE { get; set; }
+    public decimal IDTEMPS { get; set; }
 
-    public string NOM { get; set; }
+    public System.DateTime DATECOMPLET { get; set; }
+
+    public decimal HEURE { get; set; }
+
+    public string JOUR { get; set; }
+
+    public string MOIS { get; set; }
+
+    public decimal ANNE { get; set; }
 
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<FILM> FILMs { get; set; }
+    public virtual ICollection<FAITLOCATIONFILMCLIENTINSTANT> FAITLOCATIONFILMCLIENTINSTANTs { get; set; }
 
 }
 

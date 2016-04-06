@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\r.registe\Documents\Visual Studio 2013\Projects\LOG660\LOG660\DATA\MovieManagerDataObject.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\r.registe\Documents\Visual Studio 2013\Projects\LOG660\Webflix\LOG660\DATA\MovieManagerDataObject.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

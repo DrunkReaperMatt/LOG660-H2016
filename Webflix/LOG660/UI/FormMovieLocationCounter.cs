@@ -19,6 +19,7 @@ namespace LOG660.UI
         WebFlixFacade _facade = WebFlixFacade.getInstance;
         USAGER user = null;
         login login = null;
+
         public FormMovieLocationCounter(USAGER user, login login)
         {
             InitializeComponent();
@@ -43,6 +44,8 @@ namespace LOG660.UI
             {
                 lBoxAgeRange.Items.Add(i + "-" + (i + 5));
             }
+            lBoxAgeRange.SetSelected(0, true);
+
         }
         private void InitiliazeListBoxProvince()
         {
@@ -52,6 +55,9 @@ namespace LOG660.UI
 
             foreach (var province in availablesProvinceInDB.Distinct())
                 lBoxProvince.Items.Add(province);
+
+
+            lBoxProvince.SetSelected(0, true);
         }
         private void InitiliazeListBoxWeekDay()
         {
@@ -61,6 +67,8 @@ namespace LOG660.UI
             {
                 lBoxDay.Items.Add(day);
             }
+
+            lBoxDay.SetSelected(0, true);
         }
         private void InitiliazeListBoxMonths()
         {
@@ -70,12 +78,53 @@ namespace LOG660.UI
                 if (!String.IsNullOrEmpty(monthName))
                     lBoxMonth.Items.Add(monthName);
             }
+            lBoxMonth.SetSelected(0, true);
         }
+
+        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var _currentListBoxCriteria = (sender as ListBox).Name;
+            Dictionary<string, string> criterias = CheckOtherListBoxValue(_currentListBoxCriteria);
+            criterias.Add((sender as ListBox).Name, (sender as ListBox).SelectedItem.ToString());
+
+            if (criterias.Count() == 4)
+                txtResults.Text = GetLocationAmountFromCriteria(criterias) + "";
+
+        }
+
+        private int GetLocationAmountFromCriteria(Dictionary<string, string> criterias)
+        {
+            string ageRange = !criterias["lBoxAgeRange"].Equals("Tous") ? criterias["lBoxAgeRange"] : null;
+            int? day = !criterias["lBoxDay"].Equals("Tous") ? (int?)(int)Enum.Parse(typeof(DayOfWeek), criterias["lBoxDay"]) : null;
+            int? month = !criterias["lBoxMonth"].Equals("Tous") ? (int?)DateTimeFormatInfo.CurrentInfo.MonthNames.ToList().IndexOf(criterias["lBoxMonth"]) + 1 : null;
+            string province = !criterias["lBoxProvince"].Equals("Tous") ? criterias["lBoxProvince"] : null;
+
+            return _facade.getMovieLocationCountFromCirteria(ageRange, day, month, province);          
+        }
+
+        private Dictionary<string, string> CheckOtherListBoxValue(object current)
+        {
+            Dictionary<string, string> listBoxNameIndex = new Dictionary<string,string>();
+            foreach (Control control in this.Controls)
+            {
+                if (control is ListBox)
+                {
+                    if (!control.Name.Equals(current) && ((ListBox)control).SelectedItem != null)
+                    {
+                        listBoxNameIndex.Add(control.Name, ((ListBox)control).SelectedItem.ToString());
+                    }
+                }
+            }
+            return listBoxNameIndex;
+        }
+        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
             new Menu(user, login).Show();
         }
+
     }
 }

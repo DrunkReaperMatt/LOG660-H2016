@@ -41,6 +41,13 @@
         <AssociationConnector Association="MovieManagerDataObjectModel.LOCATIONUSAGER" ManuallyRouted="false" />
         <AssociationConnector Association="MovieManagerDataObjectModel.PAYSPRODUCTIONFILM" ManuallyRouted="false" />
         <AssociationConnector Association="MovieManagerDataObjectModel.SCENARISTEFILM" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.DIMENSIONCLIENT" Width="1.5" PointX="0.75" PointY="22.5" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.DIMENSIONFILM" Width="1.5" PointX="0.75" PointY="12.125" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.DIMENSIONTEMP" Width="1.5" PointX="0.75" PointY="19.375" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.FAITLOCATIONFILMCLIENTINSTANT" Width="1.5" PointX="3" PointY="14.125" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00408212" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00408214" />
+        <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00408213" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

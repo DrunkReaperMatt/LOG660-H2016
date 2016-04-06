@@ -54,6 +54,60 @@
           <Property Name="DATEEXPIRATIONCARTE" Type="date" Nullable="false" />
           <Property Name="IDFORFAIT" Type="number" Precision="38" Scale="0" />
         </EntityType>
+        <EntityType Name="DIMENSIONCLIENT">
+          <Key>
+            <PropertyRef Name="IDCLIENT" />
+          </Key>
+          <Property Name="IDCLIENT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOM" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="GROUPEAGE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ANCIENNETE" Type="date" Nullable="false" />
+          <Property Name="CODEPOSTAL" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="VILLE" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="PROVINCE" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIMENSIONFILM">
+          <Key>
+            <PropertyRef Name="IDFILM" />
+          </Key>
+          <Property Name="IDFILM" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TITRE" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="ANNEESORTIE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ORIGINE" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="ISCOMEDY" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISFAMILY" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISMYSTERY" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISANIMATION" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISSCIFY" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISBIOGRAPHIE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISMUSICAL" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISTHRILLER" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISFILMNOIR" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISADVENTURE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISROMANCE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISSPORT" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISDRAMA" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISHORROR" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISWESTERN" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISACTION" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISFANTASY" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISWAR" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISDOCUMENTARY" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISCRIME" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISHISTORY" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISMUSIC" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIMENSIONTEMPS">
+          <Key>
+            <PropertyRef Name="IDTEMPS" />
+          </Key>
+          <Property Name="IDTEMPS" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DATECOMPLET" Type="date" Nullable="false" />
+          <Property Name="HEURE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="JOUR" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="MOIS" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="ANNE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
         <EntityType Name="EMPLOYE">
           <Key>
             <PropertyRef Name="IDUSAGER" />
@@ -66,6 +120,16 @@
             <PropertyRef Name="IDEXEMPLAIRE" />
           </Key>
           <Property Name="IDEXEMPLAIRE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDFILM" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FAITLOCATIONFILMCLIENTINSTANT">
+          <Key>
+            <PropertyRef Name="IDCLIENT" />
+            <PropertyRef Name="IDTEMPS" />
+            <PropertyRef Name="IDFILM" />
+          </Key>
+          <Property Name="IDCLIENT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDTEMPS" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="IDFILM" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="FILM">
@@ -129,6 +193,12 @@
           <Property Name="IDUSAGER" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="IDLOCATION" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'EQUIPE7.MA_VUE_MOYENNE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="MA_VUE_MOYENNE">
+          <Property Name="IDFILM" Type="number" Precision="38" Scale="0" />
+          <Property Name="MOYENNE" Type="number" Precision="38" Scale="0" />
+        </EntityType>-->
         <EntityType Name="PAYSPRODUCTION">
           <Key>
             <PropertyRef Name="IDPAYS" />
@@ -457,6 +527,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="SYS_C00408212">
+          <End Role="DIMENSIONCLIENT" Type="Self.DIMENSIONCLIENT" Multiplicity="1" />
+          <End Role="FAITLOCATIONFILMCLIENTINSTANT" Type="Self.FAITLOCATIONFILMCLIENTINSTANT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIMENSIONCLIENT">
+              <PropertyRef Name="IDCLIENT" />
+            </Principal>
+            <Dependent Role="FAITLOCATIONFILMCLIENTINSTANT">
+              <PropertyRef Name="IDCLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C00408213">
+          <End Role="DIMENSIONTEMPS" Type="Self.DIMENSIONTEMPS" Multiplicity="1" />
+          <End Role="FAITLOCATIONFILMCLIENTINSTANT" Type="Self.FAITLOCATIONFILMCLIENTINSTANT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIMENSIONTEMPS">
+              <PropertyRef Name="IDTEMPS" />
+            </Principal>
+            <Dependent Role="FAITLOCATIONFILMCLIENTINSTANT">
+              <PropertyRef Name="IDTEMPS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C00408214">
+          <End Role="DIMENSIONFILM" Type="Self.DIMENSIONFILM" Multiplicity="1" />
+          <End Role="FAITLOCATIONFILMCLIENTINSTANT" Type="Self.FAITLOCATIONFILMCLIENTINSTANT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIMENSIONFILM">
+              <PropertyRef Name="IDFILM" />
+            </Principal>
+            <Dependent Role="FAITLOCATIONFILMCLIENTINSTANT">
+              <PropertyRef Name="IDFILM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="PROC_ADDCLIENT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EQUIPE7">
           <Parameter Name="NOM" Type="varchar2" Mode="In" />
           <Parameter Name="PRENOM" Type="varchar2" Mode="In" />
@@ -487,8 +593,12 @@
           <EntitySet Name="ADRESSE" EntityType="Self.ADRESSE" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="BIOGRAPHIE" EntityType="Self.BIOGRAPHIE" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="CLIENT" EntityType="Self.CLIENT" Schema="EQUIPE7" store:Type="Tables" />
+          <EntitySet Name="DIMENSIONCLIENT" EntityType="Self.DIMENSIONCLIENT" Schema="EQUIPE7" store:Type="Tables" />
+          <EntitySet Name="DIMENSIONFILM" EntityType="Self.DIMENSIONFILM" Schema="EQUIPE7" store:Type="Tables" />
+          <EntitySet Name="DIMENSIONTEMPS" EntityType="Self.DIMENSIONTEMPS" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="EMPLOYE" EntityType="Self.EMPLOYE" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="EXEMPLAIRE" EntityType="Self.EXEMPLAIRE" Schema="EQUIPE7" store:Type="Tables" />
+          <EntitySet Name="FAITLOCATIONFILMCLIENTINSTANT" EntityType="Self.FAITLOCATIONFILMCLIENTINSTANT" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="FILM" EntityType="Self.FILM" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="FORFAIT" EntityType="Self.FORFAIT" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="GENRE" EntityType="Self.GENRE" Schema="EQUIPE7" store:Type="Tables" />
@@ -591,6 +701,18 @@
           <AssociationSet Name="SYS_C00394576" Association="Self.SYS_C00394576">
             <End Role="LOCATION" EntitySet="LOCATION" />
             <End Role="LOCATIONUSAGER" EntitySet="LOCATIONUSAGER" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C00408212" Association="Self.SYS_C00408212">
+            <End Role="DIMENSIONCLIENT" EntitySet="DIMENSIONCLIENT" />
+            <End Role="FAITLOCATIONFILMCLIENTINSTANT" EntitySet="FAITLOCATIONFILMCLIENTINSTANT" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C00408213" Association="Self.SYS_C00408213">
+            <End Role="DIMENSIONTEMPS" EntitySet="DIMENSIONTEMPS" />
+            <End Role="FAITLOCATIONFILMCLIENTINSTANT" EntitySet="FAITLOCATIONFILMCLIENTINSTANT" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C00408214" Association="Self.SYS_C00408214">
+            <End Role="DIMENSIONFILM" EntitySet="DIMENSIONFILM" />
+            <End Role="FAITLOCATIONFILMCLIENTINSTANT" EntitySet="FAITLOCATIONFILMCLIENTINSTANT" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -1093,7 +1215,129 @@
             <Parameter Name="IDMOVIE" Mode="In" Type="Decimal" />
             <Parameter Name="IDMOVIEEXEMPLAIRE" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <EntitySet Name="DIMENSIONCLIENTs" EntityType="MovieManagerDataObjectModel.DIMENSIONCLIENT" />
+          <EntitySet Name="DIMENSIONFILMs" EntityType="MovieManagerDataObjectModel.DIMENSIONFILM" />
+          <EntitySet Name="DIMENSIONTEMPS" EntityType="MovieManagerDataObjectModel.DIMENSIONTEMP" />
+          <EntitySet Name="FAITLOCATIONFILMCLIENTINSTANTs" EntityType="MovieManagerDataObjectModel.FAITLOCATIONFILMCLIENTINSTANT" />
+          <AssociationSet Name="SYS_C00408212" Association="MovieManagerDataObjectModel.SYS_C00408212">
+            <End Role="DIMENSIONCLIENT" EntitySet="DIMENSIONCLIENTs" />
+            <End Role="FAITLOCATIONFILMCLIENTINSTANT" EntitySet="FAITLOCATIONFILMCLIENTINSTANTs" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C00408214" Association="MovieManagerDataObjectModel.SYS_C00408214">
+            <End Role="DIMENSIONFILM" EntitySet="DIMENSIONFILMs" />
+            <End Role="FAITLOCATIONFILMCLIENTINSTANT" EntitySet="FAITLOCATIONFILMCLIENTINSTANTs" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C00408213" Association="MovieManagerDataObjectModel.SYS_C00408213">
+            <End Role="DIMENSIONTEMP" EntitySet="DIMENSIONTEMPS" />
+            <End Role="FAITLOCATIONFILMCLIENTINSTANT" EntitySet="FAITLOCATIONFILMCLIENTINSTANTs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="DIMENSIONCLIENT">
+          <Key>
+            <PropertyRef Name="IDCLIENT" />
+          </Key>
+          <Property Name="IDCLIENT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NOM" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GROUPEAGE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ANCIENNETE" Type="DateTime" Nullable="false" />
+          <Property Name="CODEPOSTAL" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="VILLE" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PROVINCE" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FAITLOCATIONFILMCLIENTINSTANTs" Relationship="MovieManagerDataObjectModel.SYS_C00408212" FromRole="DIMENSIONCLIENT" ToRole="FAITLOCATIONFILMCLIENTINSTANT" />
+        </EntityType>
+        <EntityType Name="DIMENSIONFILM">
+          <Key>
+            <PropertyRef Name="IDFILM" />
+          </Key>
+          <Property Name="IDFILM" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TITRE" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ANNEESORTIE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ORIGINE" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ISCOMEDY" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISFAMILY" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISMYSTERY" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISANIMATION" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISSCIFY" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISBIOGRAPHIE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISMUSICAL" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISTHRILLER" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISFILMNOIR" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISADVENTURE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISROMANCE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISSPORT" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISDRAMA" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISHORROR" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISWESTERN" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISACTION" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISFANTASY" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISWAR" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISDOCUMENTARY" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISCRIME" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISHISTORY" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ISMUSIC" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="FAITLOCATIONFILMCLIENTINSTANTs" Relationship="MovieManagerDataObjectModel.SYS_C00408214" FromRole="DIMENSIONFILM" ToRole="FAITLOCATIONFILMCLIENTINSTANT" />
+        </EntityType>
+        <EntityType Name="DIMENSIONTEMP">
+          <Key>
+            <PropertyRef Name="IDTEMPS" />
+          </Key>
+          <Property Name="IDTEMPS" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DATECOMPLET" Type="DateTime" Nullable="false" />
+          <Property Name="HEURE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="JOUR" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MOIS" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ANNE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="FAITLOCATIONFILMCLIENTINSTANTs" Relationship="MovieManagerDataObjectModel.SYS_C00408213" FromRole="DIMENSIONTEMP" ToRole="FAITLOCATIONFILMCLIENTINSTANT" />
+        </EntityType>
+        <EntityType Name="FAITLOCATIONFILMCLIENTINSTANT">
+          <Key>
+            <PropertyRef Name="IDCLIENT" />
+            <PropertyRef Name="IDTEMPS" />
+            <PropertyRef Name="IDFILM" />
+          </Key>
+          <Property Name="IDCLIENT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDTEMPS" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDFILM" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="DIMENSIONCLIENT" Relationship="MovieManagerDataObjectModel.SYS_C00408212" FromRole="FAITLOCATIONFILMCLIENTINSTANT" ToRole="DIMENSIONCLIENT" />
+          <NavigationProperty Name="DIMENSIONFILM" Relationship="MovieManagerDataObjectModel.SYS_C00408214" FromRole="FAITLOCATIONFILMCLIENTINSTANT" ToRole="DIMENSIONFILM" />
+          <NavigationProperty Name="DIMENSIONTEMP" Relationship="MovieManagerDataObjectModel.SYS_C00408213" FromRole="FAITLOCATIONFILMCLIENTINSTANT" ToRole="DIMENSIONTEMP" />
+        </EntityType>
+        <Association Name="SYS_C00408212">
+          <End Type="MovieManagerDataObjectModel.DIMENSIONCLIENT" Role="DIMENSIONCLIENT" Multiplicity="1" />
+          <End Type="MovieManagerDataObjectModel.FAITLOCATIONFILMCLIENTINSTANT" Role="FAITLOCATIONFILMCLIENTINSTANT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIMENSIONCLIENT">
+              <PropertyRef Name="IDCLIENT" />
+            </Principal>
+            <Dependent Role="FAITLOCATIONFILMCLIENTINSTANT">
+              <PropertyRef Name="IDCLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C00408214">
+          <End Type="MovieManagerDataObjectModel.DIMENSIONFILM" Role="DIMENSIONFILM" Multiplicity="1" />
+          <End Type="MovieManagerDataObjectModel.FAITLOCATIONFILMCLIENTINSTANT" Role="FAITLOCATIONFILMCLIENTINSTANT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIMENSIONFILM">
+              <PropertyRef Name="IDFILM" />
+            </Principal>
+            <Dependent Role="FAITLOCATIONFILMCLIENTINSTANT">
+              <PropertyRef Name="IDFILM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C00408213">
+          <End Type="MovieManagerDataObjectModel.DIMENSIONTEMP" Role="DIMENSIONTEMP" Multiplicity="1" />
+          <End Type="MovieManagerDataObjectModel.FAITLOCATIONFILMCLIENTINSTANT" Role="FAITLOCATIONFILMCLIENTINSTANT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIMENSIONTEMP">
+              <PropertyRef Name="IDTEMPS" />
+            </Principal>
+            <Dependent Role="FAITLOCATIONFILMCLIENTINSTANT">
+              <PropertyRef Name="IDTEMPS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1305,6 +1549,72 @@
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="PROC_ADDCLIENT" FunctionName="MovieManagerDataObjectModel.Store.PROC_ADDCLIENT" />
           <FunctionImportMapping FunctionImportName="PROC_RENTMOVIE2" FunctionName="MovieManagerDataObjectModel.Store.PROC_RENTMOVIE2" />
+          <EntitySetMapping Name="DIMENSIONCLIENTs">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.DIMENSIONCLIENT">
+              <MappingFragment StoreEntitySet="DIMENSIONCLIENT">
+                <ScalarProperty Name="PROVINCE" ColumnName="PROVINCE" />
+                <ScalarProperty Name="VILLE" ColumnName="VILLE" />
+                <ScalarProperty Name="CODEPOSTAL" ColumnName="CODEPOSTAL" />
+                <ScalarProperty Name="ANCIENNETE" ColumnName="ANCIENNETE" />
+                <ScalarProperty Name="GROUPEAGE" ColumnName="GROUPEAGE" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIMENSIONFILMs">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.DIMENSIONFILM">
+              <MappingFragment StoreEntitySet="DIMENSIONFILM">
+                <ScalarProperty Name="ISMUSIC" ColumnName="ISMUSIC" />
+                <ScalarProperty Name="ISHISTORY" ColumnName="ISHISTORY" />
+                <ScalarProperty Name="ISCRIME" ColumnName="ISCRIME" />
+                <ScalarProperty Name="ISDOCUMENTARY" ColumnName="ISDOCUMENTARY" />
+                <ScalarProperty Name="ISWAR" ColumnName="ISWAR" />
+                <ScalarProperty Name="ISFANTASY" ColumnName="ISFANTASY" />
+                <ScalarProperty Name="ISACTION" ColumnName="ISACTION" />
+                <ScalarProperty Name="ISWESTERN" ColumnName="ISWESTERN" />
+                <ScalarProperty Name="ISHORROR" ColumnName="ISHORROR" />
+                <ScalarProperty Name="ISDRAMA" ColumnName="ISDRAMA" />
+                <ScalarProperty Name="ISSPORT" ColumnName="ISSPORT" />
+                <ScalarProperty Name="ISROMANCE" ColumnName="ISROMANCE" />
+                <ScalarProperty Name="ISADVENTURE" ColumnName="ISADVENTURE" />
+                <ScalarProperty Name="ISFILMNOIR" ColumnName="ISFILMNOIR" />
+                <ScalarProperty Name="ISTHRILLER" ColumnName="ISTHRILLER" />
+                <ScalarProperty Name="ISMUSICAL" ColumnName="ISMUSICAL" />
+                <ScalarProperty Name="ISBIOGRAPHIE" ColumnName="ISBIOGRAPHIE" />
+                <ScalarProperty Name="ISSCIFY" ColumnName="ISSCIFY" />
+                <ScalarProperty Name="ISANIMATION" ColumnName="ISANIMATION" />
+                <ScalarProperty Name="ISMYSTERY" ColumnName="ISMYSTERY" />
+                <ScalarProperty Name="ISFAMILY" ColumnName="ISFAMILY" />
+                <ScalarProperty Name="ISCOMEDY" ColumnName="ISCOMEDY" />
+                <ScalarProperty Name="ORIGINE" ColumnName="ORIGINE" />
+                <ScalarProperty Name="ANNEESORTIE" ColumnName="ANNEESORTIE" />
+                <ScalarProperty Name="TITRE" ColumnName="TITRE" />
+                <ScalarProperty Name="IDFILM" ColumnName="IDFILM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIMENSIONTEMPS">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.DIMENSIONTEMP">
+              <MappingFragment StoreEntitySet="DIMENSIONTEMPS">
+                <ScalarProperty Name="ANNE" ColumnName="ANNE" />
+                <ScalarProperty Name="MOIS" ColumnName="MOIS" />
+                <ScalarProperty Name="JOUR" ColumnName="JOUR" />
+                <ScalarProperty Name="HEURE" ColumnName="HEURE" />
+                <ScalarProperty Name="DATECOMPLET" ColumnName="DATECOMPLET" />
+                <ScalarProperty Name="IDTEMPS" ColumnName="IDTEMPS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAITLOCATIONFILMCLIENTINSTANTs">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.FAITLOCATIONFILMCLIENTINSTANT">
+              <MappingFragment StoreEntitySet="FAITLOCATIONFILMCLIENTINSTANT">
+                <ScalarProperty Name="IDFILM" ColumnName="IDFILM" />
+                <ScalarProperty Name="IDTEMPS" ColumnName="IDTEMPS" />
+                <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
