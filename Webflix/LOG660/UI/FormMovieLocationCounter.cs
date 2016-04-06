@@ -80,18 +80,29 @@ namespace LOG660.UI
             }
             lBoxMonth.SetSelected(0, true);
         }
+        /// <summary>
+        /// Same event for the 4 listBoxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var _currentListBoxCriteria = (sender as ListBox).Name;
+
             Dictionary<string, string> criterias = CheckOtherListBoxValue(_currentListBoxCriteria);
+            //add the current 
             criterias.Add((sender as ListBox).Name, (sender as ListBox).SelectedItem.ToString());
 
             if (criterias.Count() == 4)
                 txtResults.Text = GetLocationAmountFromCriteria(criterias) + "";
 
         }
-
+        /// <summary>
+        /// Get the location count from db after getting info from interface
+        /// </summary>
+        /// <param name="criterias"></param>
+        /// <returns></returns>
         private int GetLocationAmountFromCriteria(Dictionary<string, string> criterias)
         {
             string ageRange = !criterias["lBoxAgeRange"].Equals("Tous") ? criterias["lBoxAgeRange"] : null;
@@ -105,6 +116,7 @@ namespace LOG660.UI
         private Dictionary<string, string> CheckOtherListBoxValue(object current)
         {
             Dictionary<string, string> listBoxNameIndex = new Dictionary<string,string>();
+
             foreach (Control control in this.Controls)
             {
                 if (control is ListBox)
