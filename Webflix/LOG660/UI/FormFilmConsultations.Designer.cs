@@ -539,7 +539,7 @@
             this.m_panelBiographie.Location = new System.Drawing.Point(624, 53);
             this.m_panelBiographie.Margin = new System.Windows.Forms.Padding(4);
             this.m_panelBiographie.Name = "m_panelBiographie";
-            this.m_panelBiographie.Size = new System.Drawing.Size(553, 137);
+            this.m_panelBiographie.Size = new System.Drawing.Size(553, 135);
             this.m_panelBiographie.TabIndex = 31;
             this.m_panelBiographie.SizeChanged += new System.EventHandler(this.m_panelBiographie_SizeChanged);
             // 
