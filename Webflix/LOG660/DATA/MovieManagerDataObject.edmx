@@ -192,8 +192,27 @@
           </Key>
           <Property Name="IDUSAGER" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="IDLOCATION" Type="number" Precision="38" Scale="0" Nullable="false" />
-        </EntityType>       
-        
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EQUIPE7.MA_VUE_CORRELATIONS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MA_VUE_CORRELATIONS">
+          <Key>
+            <PropertyRef Name="FILM1" />
+            <PropertyRef Name="FILM2" />
+          </Key>
+          <Property Name="CORRELATION" Type="number" Precision="38" Scale="0" />
+          <Property Name="FILM1" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FILM2" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EQUIPE7.MA_VUE_MOYENNE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MA_VUE_MOYENNE">
+          <Key>
+            <PropertyRef Name="IDFILM" />
+          </Key>
+          <Property Name="IDFILM" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MOYENNE" Type="number" Precision="38" Scale="0" />
+        </EntityType>
         <EntityType Name="PAYSPRODUCTION">
           <Key>
             <PropertyRef Name="IDPAYS" />
@@ -609,7 +628,19 @@
           <EntitySet Name="SCENARISTE" EntityType="Self.SCENARISTE" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="SCENARISTEFILM" EntityType="Self.SCENARISTEFILM" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="USAGER" EntityType="Self.USAGER" Schema="EQUIPE7" store:Type="Tables" />
-
+          <EntitySet Name="MA_VUE_CORRELATIONS" EntityType="Self.MA_VUE_CORRELATIONS" store:Type="Tables" store:Schema="EQUIPE7">
+            <DefiningQuery>SELECT 
+"MA_VUE_CORRELATIONS"."CORRELATION" AS "CORRELATION", 
+"MA_VUE_CORRELATIONS"."FILM1" AS "FILM1", 
+"MA_VUE_CORRELATIONS"."FILM2" AS "FILM2"
+FROM "EQUIPE7"."MA_VUE_CORRELATIONS" "MA_VUE_CORRELATIONS"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MA_VUE_MOYENNE" EntityType="Self.MA_VUE_MOYENNE" store:Type="Tables" store:Schema="EQUIPE7">
+            <DefiningQuery>SELECT 
+"MA_VUE_MOYENNE"."IDFILM" AS "IDFILM", 
+"MA_VUE_MOYENNE"."MOYENNE" AS "MOYENNE"
+FROM "EQUIPE7"."MA_VUE_MOYENNE" "MA_VUE_MOYENNE"</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="EXEMPLAIREFILM_FK" Association="Self.EXEMPLAIREFILM_FK">
             <End Role="FILM" EntitySet="FILM" />
             <End Role="EXEMPLAIRE" EntitySet="EXEMPLAIRE" />
@@ -1227,6 +1258,8 @@
             <End Role="DIMENSIONTEMP" EntitySet="DIMENSIONTEMPS" />
             <End Role="FAITLOCATIONFILMCLIENTINSTANT" EntitySet="FAITLOCATIONFILMCLIENTINSTANTs" />
           </AssociationSet>
+          <EntitySet Name="MA_VUE_CORRELATIONS" EntityType="MovieManagerDataObjectModel.MA_VUE_CORRELATIONS" />
+          <EntitySet Name="MA_VUE_MOYENNE" EntityType="MovieManagerDataObjectModel.MA_VUE_MOYENNE" />
         </EntityContainer>
         <EntityType Name="DIMENSIONCLIENT">
           <Key>
@@ -1334,6 +1367,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="MA_VUE_CORRELATIONS">
+          <Key>
+            <PropertyRef Name="FILM1" />
+            <PropertyRef Name="FILM2" />
+          </Key>
+          <Property Name="CORRELATION" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="FILM1" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FILM2" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="MA_VUE_MOYENNE">
+          <Key>
+            <PropertyRef Name="IDFILM" />
+          </Key>
+          <Property Name="IDFILM" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="MOYENNE" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1608,6 +1657,23 @@
                 <ScalarProperty Name="IDFILM" ColumnName="IDFILM" />
                 <ScalarProperty Name="IDTEMPS" ColumnName="IDTEMPS" />
                 <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MA_VUE_CORRELATIONS">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.MA_VUE_CORRELATIONS">
+              <MappingFragment StoreEntitySet="MA_VUE_CORRELATIONS">
+                <ScalarProperty Name="FILM2" ColumnName="FILM2" />
+                <ScalarProperty Name="FILM1" ColumnName="FILM1" />
+                <ScalarProperty Name="CORRELATION" ColumnName="CORRELATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MA_VUE_MOYENNE">
+            <EntityTypeMapping TypeName="MovieManagerDataObjectModel.MA_VUE_MOYENNE">
+              <MappingFragment StoreEntitySet="MA_VUE_MOYENNE">
+                <ScalarProperty Name="MOYENNE" ColumnName="MOYENNE" />
+                <ScalarProperty Name="IDFILM" ColumnName="IDFILM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

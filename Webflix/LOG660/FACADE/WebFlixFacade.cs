@@ -280,7 +280,13 @@ namespace LOG660.FACADE
 
         public float? GetMovieCote(int idMovie)
         {
+            var moyenne = _entityWebFlixMgr.MA_VUE_MOYENNE.FirstOrDefault(
+                                f => f.IDFILM == idMovie);
+            if (moyenne != null)
+                return (float?)moyenne.MOYENNE;
+
             return null;
+
         }
     }
 

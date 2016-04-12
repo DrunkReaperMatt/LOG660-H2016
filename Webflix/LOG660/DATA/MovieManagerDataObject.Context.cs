@@ -79,6 +79,10 @@ public partial class MovieEntityDataManager : DbContext
 
     public virtual DbSet<FAITLOCATIONFILMCLIENTINSTANT> FAITLOCATIONFILMCLIENTINSTANTs { get; set; }
 
+    public virtual DbSet<MA_VUE_CORRELATIONS> MA_VUE_CORRELATIONS { get; set; }
+
+    public virtual DbSet<MA_VUE_MOYENNE> MA_VUE_MOYENNE { get; set; }
+
 
     public virtual int PROC_ADDCLIENT(string nOM, string pRENOM, string cOURRIEL, string tELEPHONE, Nullable<decimal> nOCIVIC, string rUE, string aPPT, string vILLE, string zIP, string pROVINCE, string pAYS, string tYPEC, Nullable<decimal> nUMEROCARTE, Nullable<System.DateTime> dATEEXPIRATIONCARTE, Nullable<decimal> cCV, Nullable<System.DateTime> dATENAISSANCE, string mOTPASSE)
     {

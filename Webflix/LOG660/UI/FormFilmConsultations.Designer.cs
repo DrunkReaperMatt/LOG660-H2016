@@ -90,6 +90,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.m_middlePanel = new System.Windows.Forms.Panel();
             this.m_topPanel = new System.Windows.Forms.Panel();
+            this.lbMoyenne = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -203,6 +204,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
+            this.splitContainer2.Panel1.Controls.Add(this.lbMoyenne);
             this.splitContainer2.Panel1.Controls.Add(this.m_dataProducer);
             this.splitContainer2.Panel1.Controls.Add(this.label7);
             this.splitContainer2.Panel1.Controls.Add(this.m_dataActors);
@@ -500,7 +502,7 @@
             // m_lblAnnee
             // 
             this.m_lblAnnee.AutoSize = true;
-            this.m_lblAnnee.Location = new System.Drawing.Point(188, 68);
+            this.m_lblAnnee.Location = new System.Drawing.Point(201, 184);
             this.m_lblAnnee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_lblAnnee.Name = "m_lblAnnee";
             this.m_lblAnnee.Size = new System.Drawing.Size(56, 17);
@@ -539,7 +541,7 @@
             this.m_panelBiographie.Location = new System.Drawing.Point(624, 53);
             this.m_panelBiographie.Margin = new System.Windows.Forms.Padding(4);
             this.m_panelBiographie.Name = "m_panelBiographie";
-            this.m_panelBiographie.Size = new System.Drawing.Size(448, 134);
+            this.m_panelBiographie.Size = new System.Drawing.Size(448, 133);
             this.m_panelBiographie.TabIndex = 31;
             this.m_panelBiographie.SizeChanged += new System.EventHandler(this.m_panelBiographie_SizeChanged);
             // 
@@ -771,6 +773,15 @@
             this.m_topPanel.Size = new System.Drawing.Size(1553, 54);
             this.m_topPanel.TabIndex = 11;
             // 
+            // lbMoyenne
+            // 
+            this.lbMoyenne.AutoSize = true;
+            this.lbMoyenne.Location = new System.Drawing.Point(191, 287);
+            this.lbMoyenne.Name = "lbMoyenne";
+            this.lbMoyenne.Size = new System.Drawing.Size(46, 17);
+            this.lbMoyenne.TabIndex = 29;
+            this.lbMoyenne.Text = "label4";
+            // 
             // FormFilmConsultations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -870,5 +881,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Panel m_panelBiographie;
+        private System.Windows.Forms.Label lbMoyenne;
     }
 }

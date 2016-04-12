@@ -48,6 +48,8 @@
         <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00408212" />
         <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00408214" />
         <AssociationConnector Association="MovieManagerDataObjectModel.SYS_C00408213" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.MA_VUE_CORRELATIONS" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MovieManagerDataObjectModel.MA_VUE_MOYENNE" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

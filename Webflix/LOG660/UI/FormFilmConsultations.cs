@@ -122,6 +122,7 @@ namespace LOG660.UI
                     m_lblDateNaissance.Text = personne.DATENAISSANCE != null ? personne.DATENAISSANCE.Value.ToString() : naString;
                     m_lblLieuNaissance.Text = personne.LIEUNAISSANCE != null ? personne.LIEUNAISSANCE : naString;
                     m_lblBiographie.Text = personne.BIOGRAPHIE.BIOGRAPHIE1 != null ? personne.BIOGRAPHIE.BIOGRAPHIE1 : naString;
+                    
                 }
             }
             else
@@ -146,7 +147,7 @@ namespace LOG660.UI
                 m_lblResume.Text = getResumeById(Convert.ToInt32(film.IDRESUME)).RESUME1;
                 m_lblTitreFilm.Text = film.TITRE;
                 m_lblTitreFilm.Bounds = film.TITRE.Length > 10 ? new Rectangle((m_lblTitreFilm.Bounds.X - 50), m_lblTitreFilm.Bounds.Y, m_lblTitreFilm.Width, m_lblTitreFilm.Height) : m_lblTitreFilm.Bounds;
-
+                lbMoyenne.Text = displayMoyenneMovie(film.IDFILM).ToString() ?? "x/5";
                 displayMovieCountries(film.PAYSPRODUCTIONs);
                 displayMovieProducer(Convert.ToInt32(film.IDREALISATEUR));
                 displayScreenWriters(film.PERSONNEs);
@@ -186,6 +187,11 @@ namespace LOG660.UI
                 var country = countries.FirstOrDefault(c => c.IDPAYS == productionCountry.IDPAYS);
                 m_dataCountries.Rows.Add(country.IDPAYS, country.NOM);
             }
+        }
+
+        private float? displayMoyenneMovie(decimal movie)
+        {
+            return m_facade.GetMovieCote(movie) ?? null;
         }
 
         private void displayMovieProducer(int producerId)

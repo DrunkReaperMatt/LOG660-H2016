@@ -114,6 +114,12 @@
     <Compile Include="DATA\LOCATION.cs">
       <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\MA_VUE_CORRELATIONS.cs">
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\MA_VUE_MOYENNE.cs">
+      <DependentUpon>MovieManagerDataObject.tt</DependentUpon>
+    </Compile>
     <Compile Include="DATA\MovieManagerDataObject.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
