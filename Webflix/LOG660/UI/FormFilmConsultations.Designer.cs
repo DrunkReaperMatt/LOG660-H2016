@@ -132,7 +132,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(1553, 535);
-            this.splitContainer1.SplitterDistance = 369;
+            this.splitContainer1.SplitterDistance = 394;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -158,7 +158,7 @@
             this.m_dataFilms.Name = "m_dataFilms";
             this.m_dataFilms.RowHeadersVisible = false;
             this.m_dataFilms.RowTemplate.Height = 28;
-            this.m_dataFilms.Size = new System.Drawing.Size(359, 490);
+            this.m_dataFilms.Size = new System.Drawing.Size(360, 490);
             this.m_dataFilms.TabIndex = 13;
             this.m_dataFilms.SelectionChanged += new System.EventHandler(this.m_dataFilms_SelectionChanged);
             this.m_dataFilms.Paint += new System.Windows.Forms.PaintEventHandler(this.m_dataFilms_Paint);
@@ -184,7 +184,7 @@
             this.m_lblFilms.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.m_lblFilms.AutoSize = true;
             this.m_lblFilms.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_lblFilms.Location = new System.Drawing.Point(153, 12);
+            this.m_lblFilms.Location = new System.Drawing.Point(154, 12);
             this.m_lblFilms.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_lblFilms.Name = "m_lblFilms";
             this.m_lblFilms.Size = new System.Drawing.Size(55, 20);
@@ -230,7 +230,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.m_lblDateNaissance);
             this.splitContainer2.Panel2.Controls.Add(this.m_lblNomActeur);
             this.splitContainer2.Panel2.Controls.Add(this.label12);
-            this.splitContainer2.Size = new System.Drawing.Size(1183, 535);
+            this.splitContainer2.Size = new System.Drawing.Size(1158, 535);
             this.splitContainer2.SplitterDistance = 331;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
@@ -304,7 +304,7 @@
             this.m_dataActors.MultiSelect = false;
             this.m_dataActors.Name = "m_dataActors";
             this.m_dataActors.RowHeadersVisible = false;
-            this.m_dataActors.Size = new System.Drawing.Size(339, 231);
+            this.m_dataActors.Size = new System.Drawing.Size(234, 231);
             this.m_dataActors.TabIndex = 26;
             this.m_dataActors.SelectionChanged += new System.EventHandler(this.m_dataActors_SelectionChanged);
             // 
@@ -522,7 +522,7 @@
             this.m_lblTitreFilm.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.m_lblTitreFilm.AutoSize = true;
             this.m_lblTitreFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_lblTitreFilm.Location = new System.Drawing.Point(530, 12);
+            this.m_lblTitreFilm.Location = new System.Drawing.Point(478, 12);
             this.m_lblTitreFilm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_lblTitreFilm.Name = "m_lblTitreFilm";
             this.m_lblTitreFilm.Size = new System.Drawing.Size(90, 20);
@@ -539,7 +539,7 @@
             this.m_panelBiographie.Location = new System.Drawing.Point(624, 53);
             this.m_panelBiographie.Margin = new System.Windows.Forms.Padding(4);
             this.m_panelBiographie.Name = "m_panelBiographie";
-            this.m_panelBiographie.Size = new System.Drawing.Size(553, 135);
+            this.m_panelBiographie.Size = new System.Drawing.Size(448, 134);
             this.m_panelBiographie.TabIndex = 31;
             this.m_panelBiographie.SizeChanged += new System.EventHandler(this.m_panelBiographie_SizeChanged);
             // 
@@ -598,7 +598,7 @@
             this.m_lblNomActeur.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.m_lblNomActeur.AutoSize = true;
             this.m_lblNomActeur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.m_lblNomActeur.Location = new System.Drawing.Point(546, 12);
+            this.m_lblNomActeur.Location = new System.Drawing.Point(494, 12);
             this.m_lblNomActeur.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_lblNomActeur.Name = "m_lblNomActeur";
             this.m_lblNomActeur.Size = new System.Drawing.Size(64, 20);

@@ -144,6 +144,8 @@ namespace LOG660.UI
                 m_lblLangue.Text = film.LANGUEORIGINAL;
                 m_lblDuree.Text = film.DUREE.Value.ToString();
                 m_lblResume.Text = getResumeById(Convert.ToInt32(film.IDRESUME)).RESUME1;
+                m_lblTitreFilm.Text = film.TITRE;
+                m_lblTitreFilm.Bounds = film.TITRE.Length > 10 ? new Rectangle((m_lblTitreFilm.Bounds.X - 50), m_lblTitreFilm.Bounds.Y, m_lblTitreFilm.Width, m_lblTitreFilm.Height) : m_lblTitreFilm.Bounds;
 
                 displayMovieCountries(film.PAYSPRODUCTIONs);
                 displayMovieProducer(Convert.ToInt32(film.IDREALISATEUR));

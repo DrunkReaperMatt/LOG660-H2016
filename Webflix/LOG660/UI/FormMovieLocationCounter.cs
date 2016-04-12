@@ -40,9 +40,9 @@ namespace LOG660.UI
 
             var _maxAgeInDb = _facade.getEntity.USAGERs.Max(u => (DateTime.Now.Year - u.DATENAISSANCE.Year));
 
-            for (int i = 0; i < _maxAgeInDb; i += 5)
+            for (int i = 18; i < _maxAgeInDb; i += 5)
             {
-                lBoxAgeRange.Items.Add(i + "-" + (i + 5));
+                lBoxAgeRange.Items.Add(i + "-" + (i + 4));
             }
             lBoxAgeRange.SetSelected(0, true);
 
@@ -110,7 +110,7 @@ namespace LOG660.UI
             int? month = !criterias["lBoxMonth"].Equals("Tous") ? (int?)DateTimeFormatInfo.CurrentInfo.MonthNames.ToList().IndexOf(criterias["lBoxMonth"]) + 1 : null;
             string province = !criterias["lBoxProvince"].Equals("Tous") ? criterias["lBoxProvince"] : null;
 
-            return _facade.getMovieLocationCountFromCirteria(ageRange, day, month, province);          
+            return _facade.getMovieLocationCountFromCriteria(ageRange, day, month, province);          
         }
 
         private Dictionary<string, string> CheckOtherListBoxValue(object current)

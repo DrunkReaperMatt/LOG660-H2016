@@ -192,13 +192,8 @@
           </Key>
           <Property Name="IDUSAGER" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="IDLOCATION" Type="number" Precision="38" Scale="0" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'EQUIPE7.MA_VUE_MOYENNE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MA_VUE_MOYENNE">
-          <Property Name="IDFILM" Type="number" Precision="38" Scale="0" />
-          <Property Name="MOYENNE" Type="number" Precision="38" Scale="0" />
-        </EntityType>-->
+        </EntityType>       
+        
         <EntityType Name="PAYSPRODUCTION">
           <Key>
             <PropertyRef Name="IDPAYS" />
@@ -614,6 +609,7 @@ warning 6013: The table/view 'EQUIPE7.MA_VUE_MOYENNE' does not have a primary ke
           <EntitySet Name="SCENARISTE" EntityType="Self.SCENARISTE" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="SCENARISTEFILM" EntityType="Self.SCENARISTEFILM" Schema="EQUIPE7" store:Type="Tables" />
           <EntitySet Name="USAGER" EntityType="Self.USAGER" Schema="EQUIPE7" store:Type="Tables" />
+
           <AssociationSet Name="EXEMPLAIREFILM_FK" Association="Self.EXEMPLAIREFILM_FK">
             <End Role="FILM" EntitySet="FILM" />
             <End Role="EXEMPLAIRE" EntitySet="EXEMPLAIRE" />

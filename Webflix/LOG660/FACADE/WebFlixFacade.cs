@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Core.Objects;
+using System.Globalization;
 
 namespace LOG660.FACADE
 {
@@ -264,9 +265,22 @@ namespace LOG660.FACADE
         }
 
 
-        public int getMovieLocationCountFromCirteria(string ageRange, int? day, int? month, string province) 
+        public int getMovieLocationCountFromCriteria(string ageRange, int? day, int? month, string province) 
+        {            
+            int? groupeage = !String.IsNullOrEmpty(ageRange) ? (int?)((int.Parse(ageRange.Split('-')[0]) - 18) / 5) : null;
+            string dayName = day.HasValue ? Enum.GetName(typeof(DayOfWeek), day.Value) : null;
+            string monthName = month.HasValue ? DateTimeFormatInfo.CurrentInfo.GetMonthName(month.Value) : null;
+
+            return _entityWebFlixMgr.FAITLOCATIONFILMCLIENTINSTANTs.Where(locationAmount => String.IsNullOrEmpty(ageRange) 
+                                    || locationAmount.DIMENSIONCLIENT.GROUPEAGE == groupeage
+                 && !day.HasValue   || dayName.Equals( locationAmount.DIMENSIONTEMP.JOUR ) 
+                 && !month.HasValue || monthName.Equals( locationAmount.DIMENSIONTEMP.MOIS)
+                 && String.IsNullOrEmpty(province) || province.Equals(locationAmount.DIMENSIONCLIENT.PROVINCE)).Count();
+        }
+
+        public float? GetMovieCote(int idMovie)
         {
-            return 0;
+            return null;
         }
     }
 
